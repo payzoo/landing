@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -91,7 +90,7 @@ const LeadForm = () => {
                 {/* Country Selector */}
                 <div className="flex-shrink-0">
                   <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-                    <SelectTrigger className="h-12 border-0 bg-transparent hover:bg-white/50 focus:ring-0 focus:ring-offset-0 rounded-xl px-3 min-w-[120px] transition-all duration-200">
+                    <SelectTrigger className="h-12 border-0 bg-transparent hover:bg-white/50 focus:ring-0 focus:ring-offset-0 rounded-xl px-3 min-w-[100px] transition-all duration-200">
                       <SelectValue>
                         <div className="flex items-center space-x-2">
                           <span className="text-lg">{currentCountry.flag}</span>
@@ -110,8 +109,7 @@ const LeadForm = () => {
                         >
                           <div className="flex items-center space-x-3 w-full">
                             <span className="text-lg">{country.flag}</span>
-                            <span className="font-semibold text-[#B4DE00]">{country.dialCode}</span>
-                            <span className="text-gray-700 font-medium">{country.name}</span>
+                            <span className="font-semibold text-gray-900">{country.dialCode}</span>
                           </div>
                         </SelectItem>
                       ))}
