@@ -1,9 +1,10 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Phone, ArrowRight, Sparkles } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 
 const countries = [
   { code: 'CI', name: 'Côte d\'Ivoire', flag: '🇨🇮', dialCode: '+225' },
@@ -62,20 +63,17 @@ const LeadForm = () => {
 
   return (
     <div id="signup" className="relative">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#B4DE00]/5 via-transparent to-blue-500/5 rounded-3xl"></div>
-      
-      <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 max-w-lg mx-auto overflow-hidden">
-        <div className="p-8">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#B4DE00] to-[#9BC400] rounded-2xl mb-6 shadow-lg">
-              <Sparkles className="w-7 h-7 text-white" />
+      <div className="relative bg-white rounded-3xl shadow-xl border border-gray-200 max-w-lg mx-auto overflow-hidden">
+        <div className="p-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-900 rounded-2xl mb-8">
+              <span className="text-white text-2xl">📱</span>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3 tracking-tight">
-              Rejoignez l'aventure Payzoo
+            <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-tight">
+              Rejoignez l'aventure <span className="font-medium">Payzoo</span>
             </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Soyez les premiers informés du lancement et bénéficiez d'un accès prioritaire
+            <p className="text-gray-600 leading-relaxed font-light">
+              Soyez les premiers informés du lancement
             </p>
           </div>
 
@@ -85,13 +83,11 @@ const LeadForm = () => {
                 {/* Country Selector */}
                 <div className="flex-shrink-0">
                   <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-                    <SelectTrigger className="h-12 border-0 bg-transparent hover:bg-white/50 focus:ring-0 focus:ring-offset-0 rounded-xl px-3 min-w-[100px] transition-all duration-200">
+                    <SelectTrigger className="h-14 border-0 bg-transparent hover:bg-white/50 focus:ring-0 focus:ring-offset-0 rounded-xl px-4 min-w-[110px] transition-all duration-200">
                       <SelectValue>
                         <div className="flex items-center space-x-2">
                           <span className="text-lg">{currentCountry.flag}</span>
-                          <div className="text-left">
-                            <div className="font-semibold text-gray-900 text-sm">{currentCountry.dialCode}</div>
-                          </div>
+                          <span className="font-medium text-gray-900 text-sm">{currentCountry.dialCode}</span>
                         </div>
                       </SelectValue>
                     </SelectTrigger>
@@ -100,11 +96,11 @@ const LeadForm = () => {
                         <SelectItem 
                           key={country.code} 
                           value={country.code}
-                          className="flex items-center space-x-3 px-4 py-3 hover:bg-[#B4DE00]/5 cursor-pointer transition-colors duration-150"
+                          className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer transition-colors duration-150"
                         >
                           <div className="flex items-center space-x-3 w-full">
                             <span className="text-lg">{country.flag}</span>
-                            <span className="font-semibold text-gray-900">{country.dialCode}</span>
+                            <span className="font-medium text-gray-900">{country.dialCode}</span>
                           </div>
                         </SelectItem>
                       ))}
@@ -113,7 +109,7 @@ const LeadForm = () => {
                 </div>
 
                 {/* Separator */}
-                <div className="h-8 w-px bg-gray-300 mx-2 self-center"></div>
+                <div className="h-8 w-px bg-gray-300 mx-3 self-center"></div>
 
                 {/* Phone Number Input */}
                 <div className="flex-1 relative">
@@ -122,10 +118,10 @@ const LeadForm = () => {
                     placeholder="01 23 45 67 89"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="h-12 border-0 bg-transparent hover:bg-white/50 focus-visible:ring-2 focus-visible:ring-[#B4DE00] focus-visible:ring-offset-0 text-base font-medium text-gray-900 placeholder:text-gray-500 rounded-xl px-3 transition-all duration-200"
+                    className="h-14 border-0 bg-transparent hover:bg-white/50 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 text-base font-medium text-gray-900 placeholder:text-gray-500 rounded-xl px-4 transition-all duration-200"
                     required
                   />
-                  <Phone className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Phone className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
                 </div>
               </div>
             </div>
@@ -134,7 +130,7 @@ const LeadForm = () => {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-900 text-white h-12 rounded-xl font-semibold text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="w-full bg-gray-900 hover:bg-black text-white h-14 rounded-xl font-medium text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl"
             >
               {isSubmitting ? (
                 <div className="flex items-center space-x-3">
@@ -150,46 +146,36 @@ const LeadForm = () => {
             </Button>
 
             {/* Trust indicators */}
-            <div className="flex items-center justify-center space-x-6 text-xs text-gray-500">
+            <div className="flex items-center justify-center space-x-8 text-xs text-gray-500 pt-4">
               <div className="flex items-center space-x-2">
-                <span className="text-green-500">🔒</span>
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                 <span className="font-medium">100% sécurisé</span>
               </div>
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
               <div className="flex items-center space-x-2">
-                <span className="text-blue-500">⚡</span>
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                 <span className="font-medium">Sans engagement</span>
               </div>
             </div>
           </form>
 
           {/* Benefits */}
-          <div className="mt-8 space-y-4">
-            <div className="flex items-start space-x-3 p-3 rounded-xl bg-gradient-to-br from-[#B4DE00]/5 to-transparent">
-              <div className="w-6 h-6 bg-gradient-to-br from-[#B4DE00] to-[#9BC400] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div className="mt-10 space-y-4">
+            <div className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50">
+              <div className="w-6 h-6 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                 <span className="text-white text-xs font-bold">✓</span>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 text-sm mb-1">Accès prioritaire</h4>
-                <p className="text-xs text-gray-600">Découvrez Payzoo avant tout le monde</p>
+                <h4 className="font-medium text-gray-900 text-sm mb-1">Accès prioritaire</h4>
+                <p className="text-xs text-gray-600 font-light">Découvrez Payzoo avant tout le monde</p>
               </div>
             </div>
-            <div className="flex items-start space-x-3 p-3 rounded-xl bg-gradient-to-br from-blue-500/5 to-transparent">
-              <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50">
+              <div className="w-6 h-6 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                 <span className="text-white text-xs font-bold">✓</span>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 text-sm mb-1">Tarifs préférentiels</h4>
-                <p className="text-xs text-gray-600">Bénéficiez d'offres exclusives au lancement</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-3 p-3 rounded-xl bg-gradient-to-br from-purple-500/5 to-transparent">
-              <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-white text-xs font-bold">✓</span>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 text-sm mb-1">Newsletter exclusive</h4>
-                <p className="text-xs text-gray-600">Recevez des insights et actualités</p>
+                <h4 className="font-medium text-gray-900 text-sm mb-1">Tarifs préférentiels</h4>
+                <p className="text-xs text-gray-600 font-light">Bénéficiez d'offres exclusives au lancement</p>
               </div>
             </div>
           </div>

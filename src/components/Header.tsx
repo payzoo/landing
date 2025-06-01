@@ -10,10 +10,10 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#B4DE00] to-[#9BC400] rounded-xl flex items-center justify-center shadow-lg">
-              <span className="text-black font-bold text-xl">P</span>
+            <div className="w-10 h-10 bg-gray-900 rounded-2xl flex items-center justify-center">
+              <span className="text-white font-bold text-xl">P</span>
             </div>
-            <span className="text-2xl font-bold text-gray-900 tracking-tight">Payzoo</span>
+            <span className="text-2xl font-light text-gray-900 tracking-tight">Payzoo</span>
           </div>
 
           {/* Navigation placeholder for future use */}
