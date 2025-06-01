@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -98,8 +99,8 @@ const LeadForm = () => {
             Pays et numéro de téléphone
           </Label>
           <div className="flex gap-2">
-            {/* Country Selection */}
-            <div className="relative w-2/5">
+            {/* Country Selection - Smaller width */}
+            <div className="relative w-1/3">
               <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 z-10" />
               <Select value={formData.country} onValueChange={(value) => setFormData({...formData, country: value})}>
                 <SelectTrigger className="pl-10 h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg">
@@ -115,9 +116,9 @@ const LeadForm = () => {
               </Select>
             </div>
 
-            {/* Phone Number with Prefix */}
+            {/* Phone Number with Prefix - Larger width */}
             <div className="flex-1 flex gap-1">
-              <div className="flex items-center px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600 min-w-[60px] justify-center">
+              <div className="flex items-center px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600 min-w-[70px] justify-center font-medium">
                 {phonePrefix || '+'}
               </div>
               <div className="relative flex-1">
