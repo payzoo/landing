@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -85,21 +84,20 @@ const LeadForm = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Formulaire en une ligne */}
-          <div className="flex flex-col lg:flex-row gap-4 items-end">
+          {/* Formulaire simplifié en une ligne */}
+          <div className="flex items-center gap-0 bg-gray-50 rounded-2xl p-2 border border-gray-200 focus-within:border-[#B4DE00] focus-within:ring-2 focus-within:ring-[#B4DE00]/20 transition-all">
             {/* Country Selector */}
-            <div className="w-full lg:w-64">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Pays</label>
+            <div className="flex-shrink-0">
               <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-                <SelectTrigger className="h-12 border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm">
+                <SelectTrigger className="h-12 border-0 bg-transparent focus:ring-0 focus:ring-offset-0 rounded-l-xl px-3">
                   <SelectValue>
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-2">
                       <span className="text-xl">{currentCountry.flag}</span>
-                      <span className="font-medium">{currentCountry.dialCode}</span>
+                      <span className="font-medium text-gray-600">{currentCountry.dialCode}</span>
                     </div>
                   </SelectValue>
                 </SelectTrigger>
-                <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg max-h-60">
+                <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg max-h-60 z-50">
                   {countries.map((country) => (
                     <SelectItem 
                       key={country.code} 
@@ -117,38 +115,36 @@ const LeadForm = () => {
               </Select>
             </div>
 
+            {/* Separator */}
+            <div className="w-px h-8 bg-gray-300 mx-2"></div>
+
             {/* Phone Number Input */}
             <div className="flex-1">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Numéro de téléphone</label>
-              <div className="relative">
-                <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <Input
-                  type="tel"
-                  placeholder="6 12 34 56 78"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="pl-12 h-12 text-lg border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm"
-                  required
-                />
-              </div>
+              <Input
+                type="tel"
+                placeholder="6 12 34 56 78"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="h-12 border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-lg placeholder:text-gray-400"
+                required
+              />
             </div>
 
             {/* Submit Button */}
-            <div className="w-full lg:w-auto">
+            <div className="flex-shrink-0">
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full lg:w-auto bg-gradient-to-r from-[#B4DE00] to-[#9BC400] hover:from-[#9BC400] hover:to-[#8AB300] text-black px-8 h-12 rounded-xl font-bold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl group"
+                className="bg-black hover:bg-gray-800 text-white px-6 h-10 rounded-xl font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
               >
                 {isSubmitting ? (
-                  <div className="flex items-center justify-center space-x-2">
-                    <div className="w-5 h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-                    <span>Inscription...</span>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                   </div>
                 ) : (
-                  <div className="flex items-center justify-center space-x-2">
-                    <span>Je veux être informé</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <div className="flex items-center space-x-2">
+                    <span>Découvrir en premier</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 )}
               </Button>
