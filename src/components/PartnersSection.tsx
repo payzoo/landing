@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const PartnersSection = () => {
@@ -9,15 +8,15 @@ const PartnersSection = () => {
     },
     {
       name: 'GitHub',
-      logo: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=100&h=100&fit=crop&crop=center&auto=format&q=80&sat=-100'
+      logo: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
     },
     {
       name: 'Cloudflare',
-      logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop&crop=center&auto=format&q=80&sat=-100'
+      logo: 'https://www.cloudflare.com/img/logo-web-badges/cf-logo-on-white-bg.svg'
     },
     {
       name: 'AWS Activate',
-      logo: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=100&h=100&fit=crop&crop=center&auto=format&q=80&sat=-100'
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg'
     }
   ];
 
