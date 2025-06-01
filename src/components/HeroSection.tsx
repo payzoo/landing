@@ -1,4 +1,3 @@
-
 import React from 'react';
 import LeadForm from './LeadForm';
 
@@ -30,10 +29,7 @@ const HeroSection = () => {
               
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                  Le paiement nouvelle
-                  <span className="block mt-2">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B4DE00] to-[#9BC400]">génération</span>
-                  </span>
+                  Le paiement nouvelle <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B4DE00] to-[#9BC400]">génération</span>
                 </h1>
                 
                 <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
@@ -74,7 +70,6 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Stats or metrics */}
             <div className="flex items-center space-x-8 pt-4">
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-900">100%</div>
