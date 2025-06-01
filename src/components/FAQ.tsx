@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Plus } from 'lucide-react';
 
 const FAQ = () => {
   const faqs = [
@@ -31,31 +32,62 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Questions fréquentes
+          {/* Header moderne */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium mb-6">
+              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+              FAQ
+            </div>
+            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 tracking-tight">
+              Questions 
+              <span className="font-medium"> fréquentes</span>
             </h2>
-            <p className="text-xl text-gray-600">
-              Retrouvez les réponses aux questions les plus posées sur Payzoo.
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+              Tout ce que vous devez savoir sur Payzoo pour bien commencer votre parcours.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-            <Accordion type="single" collapsible className="w-full">
+          {/* FAQ Cards */}
+          <div className="space-y-4">
+            <Accordion type="single" collapsible className="w-full space-y-4">
               {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border-gray-100">
-                  <AccordionTrigger className="px-6 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 hover:no-underline">
-                    <span className="text-lg">{faq.question}</span>
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`} 
+                  className="bg-white rounded-2xl border-0 shadow-sm hover:shadow-md transition-all duration-300 group overflow-hidden"
+                >
+                  <AccordionTrigger className="px-8 py-6 text-left font-medium text-gray-900 hover:bg-gray-50/50 hover:no-underline border-0 group-hover:bg-gray-50/50 transition-all duration-300">
+                    <div className="flex items-center justify-between w-full">
+                      <span className="text-lg font-medium pr-4">{faq.question}</span>
+                      <div className="flex-shrink-0">
+                        <Plus className="h-5 w-5 text-gray-400 transition-transform duration-300 group-data-[state=open]:rotate-45" />
+                      </div>
+                    </div>
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-600 leading-relaxed">
-                    {faq.answer}
+                  <AccordionContent className="px-8 pb-6 text-gray-600 leading-relaxed border-0">
+                    <div className="pt-2 text-base font-light">
+                      {faq.answer}
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+
+          {/* Call to action moderne */}
+          <div className="text-center mt-16">
+            <div className="inline-flex items-center space-x-2 text-gray-500 text-sm">
+              <span>Une autre question ?</span>
+              <a 
+                href="#" 
+                className="text-gray-900 font-medium hover:text-gray-600 transition-colors underline underline-offset-4 decoration-gray-300 hover:decoration-gray-600"
+              >
+                Contactez notre équipe
+              </a>
+            </div>
           </div>
         </div>
       </div>
