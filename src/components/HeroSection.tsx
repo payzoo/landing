@@ -39,25 +39,25 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-8">
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:bg-gray-200 transition-all duration-300">
+            <div className="grid grid-cols-3 gap-8 max-w-xl">
+              <div className="group text-left">
+                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-all duration-300">
                   <span className="text-2xl">📱</span>
                 </div>
                 <p className="font-medium text-gray-900 mb-1">Particuliers</p>
                 <p className="text-sm text-gray-500">Wallet sécurisé</p>
               </div>
 
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:bg-gray-200 transition-all duration-300">
+              <div className="group text-left">
+                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-all duration-300">
                   <span className="text-2xl">🏪</span>
                 </div>
                 <p className="font-medium text-gray-900 mb-1">Marchands</p>
                 <p className="text-sm text-gray-500">Terminal mobile</p>
               </div>
 
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:bg-gray-200 transition-all duration-300">
+              <div className="group text-left">
+                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-all duration-300">
                   <span className="text-2xl">💻</span>
                 </div>
                 <p className="font-medium text-gray-900 mb-1">Développeurs</p>
