@@ -2,13 +2,32 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Phone, ArrowRight, Sparkles } from 'lucide-react';
 
+const countries = [
+  { code: 'FR', name: 'France', flag: '🇫🇷', dialCode: '+33' },
+  { code: 'BE', name: 'Belgique', flag: '🇧🇪', dialCode: '+32' },
+  { code: 'CH', name: 'Suisse', flag: '🇨🇭', dialCode: '+41' },
+  { code: 'LU', name: 'Luxembourg', flag: '🇱🇺', dialCode: '+352' },
+  { code: 'MC', name: 'Monaco', flag: '🇲🇨', dialCode: '+377' },
+  { code: 'CA', name: 'Canada', flag: '🇨🇦', dialCode: '+1' },
+  { code: 'US', name: 'États-Unis', flag: '🇺🇸', dialCode: '+1' },
+  { code: 'GB', name: 'Royaume-Uni', flag: '🇬🇧', dialCode: '+44' },
+  { code: 'DE', name: 'Allemagne', flag: '🇩🇪', dialCode: '+49' },
+  { code: 'ES', name: 'Espagne', flag: '🇪🇸', dialCode: '+34' },
+  { code: 'IT', name: 'Italie', flag: '🇮🇹', dialCode: '+39' },
+  { code: 'NL', name: 'Pays-Bas', flag: '🇳🇱', dialCode: '+31' },
+];
+
 const LeadForm = () => {
   const [phone, setPhone] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState('FR');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const currentCountry = countries.find(c => c.code === selectedCountry) || countries[0];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +46,8 @@ const LeadForm = () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      console.log('Lead submitted:', { phone });
+      const fullPhoneNumber = `${currentCountry.dialCode} ${phone}`;
+      console.log('Lead submitted:', { phone: fullPhoneNumber, country: selectedCountry });
       
       toast({
         title: "Merci !",
@@ -65,16 +85,56 @@ const LeadForm = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="relative">
-            <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <Input
-              type="tel"
-              placeholder="+33 6 12 34 56 78"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="pl-12 h-14 text-lg border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm"
-              required
-            />
+          <div className="space-y-4">
+            {/* Country Selector */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Pays</label>
+              <Select value={selectedCountry} onValueChange={setSelectedCountry}>
+                <SelectTrigger className="h-12 border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm">
+                  <SelectValue>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-xl">{currentCountry.flag}</span>
+                      <span className="font-medium">{currentCountry.dialCode}</span>
+                      <span className="text-gray-600">{currentCountry.name}</span>
+                    </div>
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg max-h-60">
+                  {countries.map((country) => (
+                    <SelectItem 
+                      key={country.code} 
+                      value={country.code}
+                      className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer"
+                    >
+                      <div className="flex items-center space-x-3 w-full">
+                        <span className="text-xl">{country.flag}</span>
+                        <span className="font-medium text-[#B4DE00]">{country.dialCode}</span>
+                        <span className="text-gray-700">{country.name}</span>
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Phone Number Input */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Numéro de téléphone</label>
+              <div className="relative">
+                <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <div className="absolute left-12 top-1/2 transform -translate-y-1/2 text-gray-600 font-medium">
+                  {currentCountry.dialCode}
+                </div>
+                <Input
+                  type="tel"
+                  placeholder="6 12 34 56 78"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="pl-24 h-12 text-lg border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm"
+                  required
+                />
+              </div>
+            </div>
           </div>
 
           <Button
