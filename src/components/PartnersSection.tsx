@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   Carousel,
@@ -60,34 +61,36 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="relative px-24 lg:px-32">
-          <Carousel
-            opts={{
-              align: "center",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="flex items-center">
-              {partners.map((partner, index) => (
-                <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6 flex justify-center">
-                  <div className="group flex items-center justify-center p-6 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 h-24 w-full">
-                    <img 
-                      src={partner.logo} 
-                      alt={partner.name}
-                      className="w-full h-12 object-contain opacity-60 group-hover:opacity-80 transition-opacity"
-                      title={partner.name}
-                      onError={(e) => {
-                        console.log(`Failed to load logo for ${partner.name}: ${partner.logo}`);
-                      }}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10" />
-            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10" />
-          </Carousel>
+        <div className="relative px-4 sm:px-8 lg:px-16">
+          <div className="mx-16 lg:mx-20">
+            <Carousel
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="flex items-center">
+                {partners.map((partner, index) => (
+                  <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6 flex justify-center">
+                    <div className="group flex items-center justify-center p-6 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 h-24 w-full">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name}
+                        className="w-full h-12 object-contain opacity-60 group-hover:opacity-80 transition-opacity"
+                        title={partner.name}
+                        onError={(e) => {
+                          console.log(`Failed to load logo for ${partner.name}: ${partner.logo}`);
+                        }}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 h-10 w-10 bg-white shadow-lg border border-gray-200 hover:bg-gray-50" />
+              <CarouselNext className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 h-10 w-10 bg-white shadow-lg border border-gray-200 hover:bg-gray-50" />
+            </Carousel>
+          </div>
         </div>
 
         <div className="mt-16 text-center px-4 sm:px-6 lg:px-8">
