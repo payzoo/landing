@@ -22,7 +22,7 @@ const PartnersSection = () => {
   ];
 
   return (
-    <section className="py-4 bg-gray-50/50 mb-8">
+    <section className="py-4 bg-gray-50/50 mb-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-3">
           <p className="text-xs text-gray-600 font-medium">
@@ -30,7 +30,7 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-20">
           {partners.map((partner, index) => (
             <div
               key={index}
