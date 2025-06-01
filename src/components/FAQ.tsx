@@ -57,27 +57,6 @@ const FAQ = () => {
               ))}
             </Accordion>
           </div>
-
-          {/* Contact CTA */}
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">
-              Vous avez d'autres questions ?
-            </p>
-            <button 
-              onClick={() => {
-                const element = document.getElementById('signup');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="inline-flex items-center text-[#B4DE00] hover:text-[#9BC400] font-semibold transition-colors"
-            >
-              Contactez-nous
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </section>
