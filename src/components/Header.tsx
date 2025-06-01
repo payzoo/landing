@@ -7,18 +7,23 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-100 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#B4DE00] to-[#9BC400] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">P</span>
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#B4DE00] to-[#9BC400] rounded-xl flex items-center justify-center shadow-lg">
+              <span className="text-black font-bold text-xl">P</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">Payzoo</span>
+            <span className="text-2xl font-bold text-gray-900 tracking-tight">Payzoo</span>
           </div>
 
-          {/* Mobile menu button - hidden since no navigation items */}
+          {/* Navigation placeholder for future use */}
+          <div className="hidden md:flex items-center space-x-8">
+            {/* Navigation items can be added here later */}
+          </div>
+
+          {/* Mobile menu button placeholder */}
           <div className="md:hidden">
-            {/* Empty space for consistent layout */}
+            {/* Mobile menu toggle can be added here later */}
           </div>
         </div>
       </div>
