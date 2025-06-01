@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,23 +29,37 @@ const Footer = () => {
             <a 
               href="#" 
               className="w-8 h-8 bg-white rounded-lg border border-gray-200 flex items-center justify-center hover:bg-[#B4DE00] hover:border-[#B4DE00] transition-all duration-200 group"
-              aria-label="LinkedIn"
+              aria-label="Facebook"
             >
-              <span className="text-gray-600 group-hover:text-black transition-colors">💼</span>
+              <Facebook className="w-4 h-4 text-gray-600 group-hover:text-black transition-colors" />
             </a>
             <a 
               href="#" 
               className="w-8 h-8 bg-white rounded-lg border border-gray-200 flex items-center justify-center hover:bg-[#B4DE00] hover:border-[#B4DE00] transition-all duration-200 group"
               aria-label="Twitter"
             >
-              <span className="text-gray-600 group-hover:text-black transition-colors">🐦</span>
+              <Twitter className="w-4 h-4 text-gray-600 group-hover:text-black transition-colors" />
             </a>
             <a 
               href="#" 
               className="w-8 h-8 bg-white rounded-lg border border-gray-200 flex items-center justify-center hover:bg-[#B4DE00] hover:border-[#B4DE00] transition-all duration-200 group"
-              aria-label="Email"
+              aria-label="Instagram"
             >
-              <span className="text-gray-600 group-hover:text-black transition-colors">📧</span>
+              <Instagram className="w-4 h-4 text-gray-600 group-hover:text-black transition-colors" />
+            </a>
+            <a 
+              href="#" 
+              className="w-8 h-8 bg-white rounded-lg border border-gray-200 flex items-center justify-center hover:bg-[#B4DE00] hover:border-[#B4DE00] transition-all duration-200 group"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4 text-gray-600 group-hover:text-black transition-colors" />
+            </a>
+            <a 
+              href="#" 
+              className="w-8 h-8 bg-white rounded-lg border border-gray-200 flex items-center justify-center hover:bg-[#B4DE00] hover:border-[#B4DE00] transition-all duration-200 group"
+              aria-label="TikTok"
+            >
+              <span className="text-gray-600 group-hover:text-black transition-colors text-sm font-bold">TT</span>
             </a>
           </div>
         </div>
