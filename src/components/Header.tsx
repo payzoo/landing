@@ -1,17 +1,8 @@
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-100 z-50">
@@ -25,42 +16,11 @@ const Header = () => {
             <span className="text-xl font-bold text-gray-900">Payzoo</span>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Button 
-              onClick={() => scrollToSection('signup')}
-              className="bg-[#B4DE00] hover:bg-[#9BC400] text-black px-6 py-2 rounded-lg font-medium transition-colors"
-            >
-              Pré-inscription
-            </Button>
-          </nav>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <div className="w-6 h-5 flex flex-col justify-between">
-              <span className={`w-full h-0.5 bg-gray-600 transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`w-full h-0.5 bg-gray-600 transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`w-full h-0.5 bg-gray-600 transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-            </div>
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 py-4 animate-fade-in">
-            <nav className="flex flex-col space-y-4">
-              <Button 
-                onClick={() => scrollToSection('signup')}
-                className="bg-[#B4DE00] hover:bg-[#9BC400] text-black w-full py-2 rounded-lg font-medium transition-colors"
-              >
-                Pré-inscription
-              </Button>
-            </nav>
+          {/* Mobile menu button - hidden since no navigation items */}
+          <div className="md:hidden">
+            {/* Empty space for consistent layout */}
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
