@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Carousel,
@@ -47,8 +46,8 @@ const PartnersSection = () => {
 
   return (
     <section className="py-24 bg-white border-t border-gray-100 w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="w-full">
+        <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/50 backdrop-blur-sm mb-8">
             <Users className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-medium text-blue-700">Nos partenaires</span>
@@ -61,13 +60,13 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="w-full flex justify-center">
+        <div className="w-full">
           <Carousel
             opts={{
               align: "center",
               loop: true,
             }}
-            className="w-full max-w-6xl"
+            className="w-full"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {partners.map((partner, index) => (
@@ -92,7 +91,7 @@ const PartnersSection = () => {
         </div>
 
         {/* Trust indicators */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
