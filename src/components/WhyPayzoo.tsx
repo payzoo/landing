@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
@@ -8,7 +9,6 @@ const WhyPayzoo = () => {
     {
       id: 'particuliers',
       label: 'Particuliers',
-      icon: '👨‍💼',
       gradient: 'from-blue-500 to-purple-600',
       color: 'bg-blue-50 text-blue-700',
       title: 'Votre portefeuille digital intelligent',
@@ -24,7 +24,6 @@ const WhyPayzoo = () => {
     {
       id: 'marchands',
       label: 'Marchands',
-      icon: '🚀',
       gradient: 'from-emerald-500 to-teal-600',
       color: 'bg-emerald-50 text-emerald-700',
       title: 'Votre terminal de paiement révolutionnaire',
@@ -40,7 +39,6 @@ const WhyPayzoo = () => {
     {
       id: 'developpeurs',
       label: 'Développeurs',
-      icon: '🛠️',
       gradient: 'from-orange-500 to-red-600',
       color: 'bg-orange-50 text-orange-700',
       title: 'L\'API de vos rêves enfin disponible',
@@ -78,22 +76,17 @@ const WhyPayzoo = () => {
             </p>
           </div>
 
-          {/* Tabs ultra-modernes */}
+          {/* Tabs minimalistes */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <div className="flex justify-center mb-16">
-              <TabsList className="grid w-full max-w-lg grid-cols-3 bg-white/60 backdrop-blur-md border-0 shadow-xl rounded-2xl p-2 h-auto">
+              <TabsList className="grid w-full max-w-md grid-cols-3 bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-sm rounded-xl p-1 h-12">
                 {tabs.map((tab) => (
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className="flex flex-col items-center gap-3 py-6 px-4 rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-lg transition-all duration-500 hover:scale-105 group"
+                    className="rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all duration-300 text-sm font-medium"
                   >
-                    <div className={`text-3xl transition-transform duration-300 group-hover:scale-110 ${activeTab === tab.id ? 'animate-bounce' : ''}`}>
-                      {tab.icon}
-                    </div>
-                    <span className={`text-sm font-semibold transition-colors duration-300 ${activeTab === tab.id ? 'text-gray-900' : 'text-gray-500'}`}>
-                      {tab.label}
-                    </span>
+                    {tab.label}
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -107,7 +100,6 @@ const WhyPayzoo = () => {
                   <div className="space-y-8">
                     <div className="space-y-6">
                       <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${tab.color} text-sm font-medium`}>
-                        <span className="text-2xl">{tab.icon}</span>
                         {tab.label}
                       </div>
                       
@@ -151,10 +143,10 @@ const WhyPayzoo = () => {
                           {/* Gradient overlay animé */}
                           <div className={`absolute inset-0 bg-gradient-to-br ${tab.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}></div>
                           
-                          {/* Header avec icône animée */}
+                          {/* Header avec badge */}
                           <div className="flex items-center gap-4 mb-8 relative z-10">
-                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${tab.gradient} flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                              {tab.icon}
+                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${tab.gradient} flex items-center justify-center text-white text-sm font-semibold shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                              {tab.label.slice(0, 3)}
                             </div>
                             <div>
                               <h4 className="font-bold text-gray-900 text-lg">{tab.label}</h4>
@@ -178,7 +170,7 @@ const WhyPayzoo = () => {
                             </div>
                             
                             <div className="text-center space-y-2">
-                              <div className="text-3xl animate-pulse">{tab.icon}</div>
+                              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tab.gradient} opacity-20 animate-pulse mx-auto`}></div>
                               <p className="text-gray-600 text-sm font-medium">Prêt à démarrer</p>
                             </div>
                           </div>
