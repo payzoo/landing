@@ -22,6 +22,10 @@ const PartnersSection = () => {
     {
       name: 'Grafana',
       logo: 'https://grafana.com/static/img/logos/grafana_logo.svg'
+    },
+    {
+      name: 'Terraform',
+      logo: 'https://www.datocms-assets.com/2885/1629941242-logo-terraform-main.svg'
     }
   ];
 
@@ -40,7 +44,7 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center max-w-6xl mx-auto">
           {partners.map((partner, index) => (
             <div
               key={index}
