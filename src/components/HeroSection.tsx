@@ -1,4 +1,3 @@
-
 import React from 'react';
 import LeadForm from './LeadForm';
 
@@ -17,7 +16,7 @@ const HeroSection = () => {
           {/* Left Column - Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#B4DE00]/20 text-[#9BC400] text-sm font-medium">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-600 text-white text-sm font-medium shadow-lg">
                 🚀 Bientôt disponible
               </div>
               
@@ -31,7 +30,6 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Value propositions */}
             <div className="grid sm:grid-cols-3 gap-3">
               <div className="flex items-center space-x-2 p-3 rounded-lg bg-white border border-gray-100 shadow-sm">
                 <div className="w-8 h-8 bg-[#B4DE00]/20 rounded-lg flex items-center justify-center">
