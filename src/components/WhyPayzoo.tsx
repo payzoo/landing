@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
@@ -63,19 +62,18 @@ const WhyPayzoo = () => {
     <section id="why-payzoo" className="py-24 bg-gradient-to-br from-gray-50/30 via-white to-blue-50/20 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Header super moderne */}
+          {/* Header modernisé pour correspondre aux autres sections */}
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/50 backdrop-blur-sm mb-8">
               <Sparkles className="w-4 h-4 text-blue-600" />
               <span className="text-sm font-medium text-blue-700">Innovation & simplicité</span>
             </div>
             
-            <h2 className="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-6 leading-[1.1]">
-              Fait pour
-              <span className="block mt-2">tous 🎯</span>
+            <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6 tracking-tight">
+              Conçu pour <span className="font-medium">tous les profils</span> 🎯
             </h2>
             
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
               Une solution qui s'adapte à votre rythme, quel que soit votre profil
             </p>
           </div>
