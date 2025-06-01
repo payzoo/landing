@@ -1,47 +1,22 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { User, Phone, Check } from 'lucide-react';
-
-const countryData = {
-  ci: { name: '🇨🇮 Côte d\'Ivoire', flag: '🇨🇮', code: '+225' },
-  fr: { name: '🇫🇷 France', flag: '🇫🇷', code: '+33' },
-  sn: { name: '🇸🇳 Sénégal', flag: '🇸🇳', code: '+221' },
-  gh: { name: '🇬🇭 Ghana', flag: '🇬🇭', code: '+233' },
-  ml: { name: '🇲🇱 Mali', flag: '🇲🇱', code: '+223' },
-  bj: { name: '🇧🇯 Bénin', flag: '🇧🇯', code: '+229' },
-  bf: { name: '🇧🇫 Burkina Faso', flag: '🇧🇫', code: '+226' },
-  other: { name: '🌍 Autre', flag: '🌍', code: '+' }
-};
+import { Mail, ArrowRight } from 'lucide-react';
 
 const LeadForm = () => {
-  const [formData, setFormData] = useState({
-    phone: '',
-    userType: '',
-    country: '',
-    marketingOptIn: false
-  });
-  const [phonePrefix, setPhonePrefix] = useState('');
+  const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-
-  useEffect(() => {
-    if (formData.country && countryData[formData.country as keyof typeof countryData]) {
-      setPhonePrefix(countryData[formData.country as keyof typeof countryData].code);
-    }
-  }, [formData.country]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.phone || !formData.userType || !formData.country) {
+    if (!email) {
       toast({
         title: "Erreur",
-        description: "Veuillez remplir tous les champs obligatoires.",
+        description: "Veuillez entrer votre adresse email.",
         variant: "destructive"
       });
       return;
@@ -52,21 +27,14 @@ const LeadForm = () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      const fullPhone = phonePrefix + ' ' + formData.phone;
-      console.log('Lead submitted:', { ...formData, phone: fullPhone });
+      console.log('Lead submitted:', { email });
       
       toast({
         title: "Merci !",
         description: "Nous vous tiendrons informé du lancement de Payzoo.",
       });
       
-      setFormData({
-        phone: '',
-        userType: '',
-        country: '',
-        marketingOptIn: false
-      });
-      setPhonePrefix('');
+      setEmail('');
     } catch (error) {
       toast({
         title: "Erreur",
@@ -79,127 +47,52 @@ const LeadForm = () => {
   };
 
   return (
-    <div id="signup" className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-100 max-w-sm mx-auto">
-      <div className="text-center mb-6">
-        <div className="inline-flex items-center justify-center w-10 h-10 bg-[#B4DE00]/20 rounded-full mb-3">
-          <span className="text-lg">🚀</span>
+    <div id="signup" className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 max-w-md mx-auto">
+      <div className="text-center mb-8">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-[#B4DE00]/10 rounded-full mb-4">
+          <span className="text-2xl">🚀</span>
         </div>
-        <h3 className="text-lg font-bold text-gray-900 mb-1">
-          Rejoignez l'aventure
+        <h3 className="text-xl font-bold text-gray-900 mb-2">
+          Rejoignez l'aventure Payzoo
         </h3>
-        <p className="text-gray-600 text-sm">
-          Soyez notifié du lancement
+        <p className="text-gray-600">
+          Soyez les premiers informés du lancement
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Country and Phone Number on same line */}
-        <div>
-          <Label className="text-sm font-medium text-gray-700 mb-2 block">
-            Pays et numéro de téléphone
-          </Label>
-          <div className="flex gap-2">
-            {/* Country Selection - Only flags */}
-            <div className="relative w-1/3">
-              <Select value={formData.country} onValueChange={(value) => setFormData({...formData, country: value})}>
-                <SelectTrigger className="h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg">
-                  <SelectValue placeholder="🌍">
-                    {formData.country ? countryData[formData.country as keyof typeof countryData]?.flag : '🌍'}
-                  </SelectValue>
-                </SelectTrigger>
-                <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-                  {Object.entries(countryData).map(([key, value]) => (
-                    <SelectItem key={key} value={key} className="rounded-md">
-                      {value.flag}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Phone Number with integrated prefix */}
-            <div className="relative flex-1">
-              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <Input
-                id="phone"
-                type="tel"
-                placeholder={phonePrefix ? `${phonePrefix} 12 34 56 78` : "Sélectionnez un pays"}
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                className="pl-10 h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg"
-                required
-              />
-            </div>
-          </div>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="relative">
+          <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <Input
+            type="email"
+            placeholder="votre@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="pl-12 h-14 text-lg border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl"
+            required
+          />
         </div>
 
-        {/* User Type */}
-        <div>
-          <Label className="text-sm font-medium text-gray-700 mb-2 block">
-            Profil
-          </Label>
-          <div className="relative">
-            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 z-10" />
-            <Select value={formData.userType} onValueChange={(value) => setFormData({...formData, userType: value})}>
-              <SelectTrigger className="pl-10 h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg">
-                <SelectValue placeholder="Votre profil" />
-              </SelectTrigger>
-              <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-                <SelectItem value="particulier" className="rounded-md">🌟 Particulier</SelectItem>
-                <SelectItem value="marchand" className="rounded-md">🏪 Marchand</SelectItem>
-                <SelectItem value="developpeur" className="rounded-md">💻 Développeur</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-
-        {/* Marketing Opt-in */}
-        <div className="flex items-start space-x-3 p-3 bg-gray-50/50 rounded-lg">
-          <div className="relative mt-0.5">
-            <input
-              type="checkbox"
-              id="marketing"
-              checked={formData.marketingOptIn}
-              onChange={(e) => setFormData({...formData, marketingOptIn: e.target.checked})}
-              className="sr-only"
-            />
-            <label 
-              htmlFor="marketing" 
-              className={`flex items-center justify-center w-4 h-4 border-2 rounded cursor-pointer transition-all ${
-                formData.marketingOptIn 
-                  ? 'bg-[#B4DE00] border-[#B4DE00]' 
-                  : 'border-gray-300 hover:border-[#B4DE00]'
-              }`}
-            >
-              {formData.marketingOptIn && (
-                <Check className="w-2.5 h-2.5 text-black" />
-              )}
-            </label>
-          </div>
-          <label htmlFor="marketing" className="text-xs text-gray-600 leading-relaxed cursor-pointer">
-            Recevoir les notifications de lancement
-          </label>
-        </div>
-
-        {/* Submit Button */}
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[#B4DE00] hover:bg-[#9BC400] text-black py-3 h-11 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+          className="w-full bg-[#B4DE00] hover:bg-[#9BC400] text-black py-4 h-14 rounded-xl font-semibold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl group"
         >
           {isSubmitting ? (
             <div className="flex items-center justify-center space-x-2">
-              <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+              <div className="w-5 h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
               <span>Inscription...</span>
             </div>
           ) : (
-            "Rejoindre la liste"
+            <div className="flex items-center justify-center space-x-2">
+              <span>Je veux être informé</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </div>
           )}
         </Button>
 
-        {/* Privacy Notice */}
-        <p className="text-xs text-gray-500 text-center">
-          🔒 Données sécurisées - Conforme RGPD
+        <p className="text-sm text-gray-500 text-center">
+          🔒 Pas de spam, désabonnement facile
         </p>
       </form>
     </div>
