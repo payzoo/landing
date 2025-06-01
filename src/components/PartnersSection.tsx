@@ -26,7 +26,7 @@ const PartnersSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-3">
           <p className="text-xs text-gray-600 font-medium">
-            Nos partenaires technologiques
+            Trusted by these companies so far
           </p>
         </div>
         
@@ -44,12 +44,6 @@ const PartnersSection = () => {
               />
             </div>
           ))}
-        </div>
-        
-        <div className="text-center mt-2">
-          <p className="text-xs text-gray-500">
-            Accélérant notre croissance ensemble
-          </p>
         </div>
       </div>
     </section>
