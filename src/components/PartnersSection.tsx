@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const PartnersSection = () => {
@@ -33,12 +34,12 @@ const PartnersSection = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow p-2"
+              className="flex items-center justify-center w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36"
             >
               <img 
                 src={partner.logo} 
                 alt={partner.name}
-                className="w-full h-full object-contain grayscale opacity-70 hover:opacity-90 transition-opacity"
+                className="w-full h-full object-contain opacity-60 hover:opacity-80 transition-opacity"
                 title={partner.name}
               />
             </div>
