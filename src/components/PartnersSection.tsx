@@ -18,6 +18,10 @@ const PartnersSection = () => {
     {
       name: 'AWS Activate',
       logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg'
+    },
+    {
+      name: 'Grafana',
+      logo: 'https://grafana.com/static/img/logos/grafana_logo.svg'
     }
   ];
 
@@ -36,7 +40,7 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center max-w-5xl mx-auto">
           {partners.map((partner, index) => (
             <div
               key={index}
