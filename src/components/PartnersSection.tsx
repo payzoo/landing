@@ -60,7 +60,7 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="relative px-16 lg:px-20">
+        <div className="relative px-24 lg:px-32">
           <Carousel
             opts={{
               align: "center",
@@ -90,7 +90,6 @@ const PartnersSection = () => {
           </Carousel>
         </div>
 
-        {/* Trust indicators */}
         <div className="mt-16 text-center px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
