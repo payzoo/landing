@@ -70,7 +70,7 @@ const FAQ = () => {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
+              className="inline-flex items-center text-[#B4DE00] hover:text-[#9BC400] font-semibold transition-colors"
             >
               Contactez-nous
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -74,7 +74,7 @@ const WhyPayzoo = () => {
                 variant="ghost"
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
                   activeTab === tab.id
-                    ? 'bg-white text-emerald-600 shadow-sm'
+                    ? 'bg-white text-[#B4DE00] shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -101,8 +101,8 @@ const WhyPayzoo = () => {
             <ul className="space-y-4">
               {currentTab.benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-6 h-6 bg-[#B4DE00]/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg className="w-3 h-3 text-[#B4DE00]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -115,10 +115,10 @@ const WhyPayzoo = () => {
           {/* Right Column - Visual */}
           <div className="flex justify-center">
             <div className="relative">
-              <div className="w-80 h-96 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-3xl shadow-2xl flex items-center justify-center">
+              <div className="w-80 h-96 bg-gradient-to-br from-[#B4DE00]/10 to-[#B4DE00]/20 rounded-3xl shadow-2xl flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl mb-4">{currentTab.icon}</div>
-                  <div className="text-emerald-600 font-semibold text-lg">{currentTab.label}</div>
+                  <div className="text-[#B4DE00] font-semibold text-lg">{currentTab.label}</div>
                   <div className="text-gray-600 text-sm mt-2">Interface Payzoo</div>
                 </div>
               </div>
@@ -127,8 +127,8 @@ const WhyPayzoo = () => {
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center">
                 <span className="text-2xl">🚀</span>
               </div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-emerald-600 rounded-xl shadow-lg flex items-center justify-center">
-                <span className="text-white text-xl">✓</span>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#B4DE00] rounded-xl shadow-lg flex items-center justify-center">
+                <span className="text-black text-xl">✓</span>
               </div>
             </div>
           </div>

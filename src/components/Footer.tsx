@@ -39,8 +39,8 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-[#B4DE00] to-[#9BC400] rounded-lg flex items-center justify-center">
+                <span className="text-black font-bold text-xl">P</span>
               </div>
               <span className="text-2xl font-bold">Payzoo</span>
             </div>
@@ -65,7 +65,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-300 hover:text-emerald-400 transition-colors">
+                  <a href={link.href} className="text-gray-300 hover:text-[#B4DE00] transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -79,7 +79,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-300 hover:text-emerald-400 transition-colors">
+                  <a href={link.href} className="text-gray-300 hover:text-[#B4DE00] transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -93,7 +93,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.support.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-gray-300 hover:text-emerald-400 transition-colors">
+                  <a href={link.href} className="text-gray-300 hover:text-[#B4DE00] transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -113,9 +113,9 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Votre adresse email"
-                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 rounded-l-lg focus:outline-none focus:border-emerald-500 text-white"
+                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 rounded-l-lg focus:outline-none focus:border-[#B4DE00] text-white"
               />
-              <button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-2 rounded-r-lg font-medium transition-colors">
+              <button className="bg-[#B4DE00] hover:bg-[#9BC400] text-black px-6 py-2 rounded-r-lg font-medium transition-colors">
                 S'abonner
               </button>
             </div>
@@ -136,7 +136,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 bg-gray-800 hover:bg-emerald-600 rounded-lg flex items-center justify-center transition-colors"
+                  className="w-10 h-10 bg-gray-800 hover:bg-[#B4DE00] rounded-lg flex items-center justify-center transition-colors"
                   aria-label={social.name}
                 >
                   <span className="text-lg">{social.icon}</span>

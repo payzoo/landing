@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#B4DE00] to-[#9BC400] rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">P</span>
             </div>
             <span className="text-xl font-bold text-gray-900">Payzoo</span>
@@ -29,19 +29,19 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('why-payzoo')}
-              className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
+              className="text-gray-600 hover:text-[#B4DE00] transition-colors font-medium"
             >
               Pourquoi Payzoo
             </button>
             <button 
               onClick={() => scrollToSection('faq')}
-              className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
+              className="text-gray-600 hover:text-[#B4DE00] transition-colors font-medium"
             >
               FAQ
             </button>
             <Button 
               onClick={() => scrollToSection('signup')}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+              className="bg-[#B4DE00] hover:bg-[#9BC400] text-black px-6 py-2 rounded-lg font-medium transition-colors"
             >
               Pré-inscription
             </Button>
@@ -66,19 +66,19 @@ const Header = () => {
             <nav className="flex flex-col space-y-4">
               <button 
                 onClick={() => scrollToSection('why-payzoo')}
-                className="text-gray-600 hover:text-emerald-600 transition-colors font-medium text-left"
+                className="text-gray-600 hover:text-[#B4DE00] transition-colors font-medium text-left"
               >
                 Pourquoi Payzoo
               </button>
               <button 
                 onClick={() => scrollToSection('faq')}
-                className="text-gray-600 hover:text-emerald-600 transition-colors font-medium text-left"
+                className="text-gray-600 hover:text-[#B4DE00] transition-colors font-medium text-left"
               >
                 FAQ
               </button>
               <Button 
                 onClick={() => scrollToSection('signup')}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2 rounded-lg font-medium transition-colors"
+                className="bg-[#B4DE00] hover:bg-[#9BC400] text-black w-full py-2 rounded-lg font-medium transition-colors"
               >
                 Pré-inscription
               </Button>

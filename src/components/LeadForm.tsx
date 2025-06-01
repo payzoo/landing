@@ -82,7 +82,7 @@ const LeadForm = () => {
             placeholder="+225 1234 5678"
             value={formData.phone}
             onChange={(e) => setFormData({...formData, phone: e.target.value})}
-            className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+            className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#B4DE00] focus:border-[#B4DE00]"
             required
           />
         </div>
@@ -93,7 +93,7 @@ const LeadForm = () => {
             Vous êtes *
           </Label>
           <Select value={formData.userType} onValueChange={(value) => setFormData({...formData, userType: value})}>
-            <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+            <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#B4DE00] focus:border-[#B4DE00]">
               <SelectValue placeholder="Sélectionnez votre profil" />
             </SelectTrigger>
             <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg">
@@ -110,7 +110,7 @@ const LeadForm = () => {
             Votre pays *
           </Label>
           <Select value={formData.country} onValueChange={(value) => setFormData({...formData, country: value})}>
-            <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+            <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#B4DE00] focus:border-[#B4DE00]">
               <SelectValue placeholder="Sélectionnez votre pays" />
             </SelectTrigger>
             <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg">
@@ -133,7 +133,7 @@ const LeadForm = () => {
             id="marketing"
             checked={formData.marketingOptIn}
             onChange={(e) => setFormData({...formData, marketingOptIn: e.target.checked})}
-            className="mt-1 w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
+            className="mt-1 w-4 h-4 text-[#B4DE00] border-gray-300 rounded focus:ring-[#B4DE00]"
           />
           <Label htmlFor="marketing" className="text-sm text-gray-600 leading-relaxed">
             J'accepte de recevoir des notifications SMS/WhatsApp concernant le lancement de Payzoo
@@ -144,7 +144,7 @@ const LeadForm = () => {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-lg font-semibold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-[#B4DE00] hover:bg-[#9BC400] text-black py-4 rounded-lg font-semibold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Inscription en cours...' : 'Je rejoins la liste'}
         </Button>

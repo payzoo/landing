@@ -18,13 +18,13 @@ const HeroSection = () => {
           {/* Left Column - Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#B4DE00]/20 text-[#9BC400] text-sm font-medium">
                 🚀 Bientôt disponible
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Payzoo arrive bientôt :
-                <span className="text-emerald-600 block">le paiement nouvelle génération</span>
+                <span className="text-[#B4DE00] block">le paiement nouvelle génération</span>
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
@@ -35,8 +35,8 @@ const HeroSection = () => {
             {/* Value propositions */}
             <div className="grid sm:grid-cols-3 gap-4">
               <div className="flex items-center space-x-3 p-4 rounded-lg bg-white border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <span className="text-emerald-600 font-bold">📱</span>
+                <div className="w-10 h-10 bg-[#B4DE00]/20 rounded-lg flex items-center justify-center">
+                  <span className="text-[#B4DE00] font-bold">📱</span>
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Particuliers</p>
@@ -45,8 +45,8 @@ const HeroSection = () => {
               </div>
 
               <div className="flex items-center space-x-3 p-4 rounded-lg bg-white border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <span className="text-emerald-600 font-bold">🏪</span>
+                <div className="w-10 h-10 bg-[#B4DE00]/20 rounded-lg flex items-center justify-center">
+                  <span className="text-[#B4DE00] font-bold">🏪</span>
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Marchands</p>
@@ -55,8 +55,8 @@ const HeroSection = () => {
               </div>
 
               <div className="flex items-center space-x-3 p-4 rounded-lg bg-white border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <span className="text-emerald-600 font-bold">💻</span>
+                <div className="w-10 h-10 bg-[#B4DE00]/20 rounded-lg flex items-center justify-center">
+                  <span className="text-[#B4DE00] font-bold">💻</span>
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Développeurs</p>
@@ -69,14 +69,14 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 onClick={() => scrollToSection('signup')}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-lg"
+                className="bg-[#B4DE00] hover:bg-[#9BC400] text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-lg"
               >
                 Je veux être informé
               </Button>
               <Button 
                 variant="outline" 
                 onClick={() => scrollToSection('features')}
-                className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                className="border-[#B4DE00] text-[#B4DE00] hover:bg-[#B4DE00]/10 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
               >
                 Découvrir les fonctionnalités
               </Button>
