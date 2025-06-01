@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -93,48 +92,46 @@ const LeadForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Country Selection */}
+        {/* Country and Phone Number on same line */}
         <div>
           <Label className="text-sm font-medium text-gray-700 mb-2 block">
-            Pays
-          </Label>
-          <div className="relative">
-            <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 z-10" />
-            <Select value={formData.country} onValueChange={(value) => setFormData({...formData, country: value})}>
-              <SelectTrigger className="pl-10 h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg">
-                <SelectValue placeholder="Sélectionnez votre pays" />
-              </SelectTrigger>
-              <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg">
-                {Object.entries(countryData).map(([key, value]) => (
-                  <SelectItem key={key} value={key} className="rounded-md">
-                    {value.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-
-        {/* Phone Number with Prefix */}
-        <div>
-          <Label htmlFor="phone" className="text-sm font-medium text-gray-700 mb-2 block">
-            Numéro de téléphone
+            Pays et numéro de téléphone
           </Label>
           <div className="flex gap-2">
-            <div className="flex items-center px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600 min-w-[70px] justify-center">
-              {phonePrefix || '+'}
+            {/* Country Selection */}
+            <div className="relative w-2/5">
+              <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 z-10" />
+              <Select value={formData.country} onValueChange={(value) => setFormData({...formData, country: value})}>
+                <SelectTrigger className="pl-10 h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg">
+                  <SelectValue placeholder="Pays" />
+                </SelectTrigger>
+                <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                  {Object.entries(countryData).map(([key, value]) => (
+                    <SelectItem key={key} value={key} className="rounded-md">
+                      {value.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
-            <div className="relative flex-1">
-              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <Input
-                id="phone"
-                type="tel"
-                placeholder="12 34 56 78"
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                className="pl-10 h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg"
-                required
-              />
+
+            {/* Phone Number with Prefix */}
+            <div className="flex-1 flex gap-1">
+              <div className="flex items-center px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600 min-w-[60px] justify-center">
+                {phonePrefix || '+'}
+              </div>
+              <div className="relative flex-1">
+                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="12 34 56 78"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  className="pl-10 h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg"
+                  required
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -150,7 +147,7 @@ const LeadForm = () => {
               <SelectTrigger className="pl-10 h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg">
                 <SelectValue placeholder="Votre profil" />
               </SelectTrigger>
-              <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg">
+              <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                 <SelectItem value="particulier" className="rounded-md">🌟 Particulier</SelectItem>
                 <SelectItem value="marchand" className="rounded-md">🏪 Marchand</SelectItem>
                 <SelectItem value="developpeur" className="rounded-md">💻 Développeur</SelectItem>
