@@ -115,10 +115,10 @@ const WhyPayzoo = () => {
           {/* Right Column - Visual */}
           <div className="flex justify-center">
             <div className="relative">
-              <div className="w-80 h-96 bg-gradient-to-br from-[#B4DE00]/10 to-[#B4DE00]/20 rounded-3xl shadow-2xl flex items-center justify-center">
+              <div className="w-80 h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-3xl shadow-2xl flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl mb-4">{currentTab.icon}</div>
-                  <div className="text-[#B4DE00] font-semibold text-lg">{currentTab.label}</div>
+                  <div className="text-gray-700 font-semibold text-lg">{currentTab.label}</div>
                   <div className="text-gray-600 text-sm mt-2">Interface Payzoo</div>
                 </div>
               </div>
