@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const PartnersSection = () => {
@@ -25,6 +26,14 @@ const PartnersSection = () => {
     {
       name: 'Terraform',
       logo: 'https://www.datocms-assets.com/2885/1629941242-logo-terraform-main.svg'
+    },
+    {
+      name: 'Visa',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png'
+    },
+    {
+      name: 'Mastercard',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg'
     }
   ];
 
