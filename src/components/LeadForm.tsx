@@ -6,23 +6,18 @@ import { useToast } from '@/hooks/use-toast';
 import { Phone, ArrowRight, Sparkles } from 'lucide-react';
 
 const countries = [
-  { code: 'FR', name: 'France', flag: '🇫🇷', dialCode: '+33' },
-  { code: 'BE', name: 'Belgique', flag: '🇧🇪', dialCode: '+32' },
-  { code: 'CH', name: 'Suisse', flag: '🇨🇭', dialCode: '+41' },
-  { code: 'LU', name: 'Luxembourg', flag: '🇱🇺', dialCode: '+352' },
-  { code: 'MC', name: 'Monaco', flag: '🇲🇨', dialCode: '+377' },
-  { code: 'CA', name: 'Canada', flag: '🇨🇦', dialCode: '+1' },
-  { code: 'US', name: 'États-Unis', flag: '🇺🇸', dialCode: '+1' },
-  { code: 'GB', name: 'Royaume-Uni', flag: '🇬🇧', dialCode: '+44' },
-  { code: 'DE', name: 'Allemagne', flag: '🇩🇪', dialCode: '+49' },
-  { code: 'ES', name: 'Espagne', flag: '🇪🇸', dialCode: '+34' },
-  { code: 'IT', name: 'Italie', flag: '🇮🇹', dialCode: '+39' },
-  { code: 'NL', name: 'Pays-Bas', flag: '🇳🇱', dialCode: '+31' },
+  { code: 'CI', name: 'Côte d\'Ivoire', flag: '🇨🇮', dialCode: '+225' },
+  { code: 'SN', name: 'Sénégal', flag: '🇸🇳', dialCode: '+221' },
+  { code: 'BJ', name: 'Bénin', flag: '🇧🇯', dialCode: '+229' },
+  { code: 'TG', name: 'Togo', flag: '🇹🇬', dialCode: '+228' },
+  { code: 'ML', name: 'Mali', flag: '🇲🇱', dialCode: '+223' },
+  { code: 'BF', name: 'Burkina Faso', flag: '🇧🇫', dialCode: '+226' },
+  { code: 'GN', name: 'Guinée', flag: '🇬🇳', dialCode: '+224' },
 ];
 
 const LeadForm = () => {
   const [phone, setPhone] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState('FR');
+  const [selectedCountry, setSelectedCountry] = useState('CI');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
