@@ -1,5 +1,11 @@
-
 import React from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const PartnersSection = () => {
   const partners = [
@@ -52,23 +58,34 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center max-w-6xl mx-auto">
-          {partners.map((partner, index) => (
-            <div
-              key={index}
-              className="group flex items-center justify-center p-8 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300"
-            >
-              <img 
-                src={partner.logo} 
-                alt={partner.name}
-                className="w-full h-12 object-contain opacity-60 group-hover:opacity-80 transition-opacity"
-                title={partner.name}
-                onError={(e) => {
-                  console.log(`Failed to load logo for ${partner.name}: ${partner.logo}`);
-                }}
-              />
-            </div>
-          ))}
+        <div className="max-w-5xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {partners.map((partner, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/3 md:basis-1/4 lg:basis-1/6">
+                  <div className="group flex items-center justify-center p-6 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 h-24">
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name}
+                      className="w-full h-12 object-contain opacity-60 group-hover:opacity-80 transition-opacity"
+                      title={partner.name}
+                      onError={(e) => {
+                        console.log(`Failed to load logo for ${partner.name}: ${partner.logo}`);
+                      }}
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
 
         {/* Trust indicators */}
