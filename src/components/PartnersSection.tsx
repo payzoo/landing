@@ -5,7 +5,7 @@ const PartnersSection = () => {
   const partners = [
     {
       name: 'Microsoft for Startups',
-      logo: 'https://images.unsplash.com/photo-1633409361618-c73427e4e206?w=100&h=100&fit=crop&crop=center&auto=format&q=80&sat=-100'
+      logo: '/lovable-uploads/00d0a090-3aff-440a-8d64-542d1f23cfaa.png'
     },
     {
       name: 'GitHub',
@@ -25,7 +25,7 @@ const PartnersSection = () => {
     <section className="py-4 bg-gray-50/50 mb-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
-          <p className="text-sm text-gray-700 font-semibold">
+          <p className="text-base text-gray-800 font-bold">
             Trusted by these companies so far
           </p>
         </div>
