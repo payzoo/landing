@@ -65,18 +65,38 @@ const PartnersSection = () => {
 
         {/* Trust indicators */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-8 text-sm text-gray-500">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="font-medium">Certifié SOC 2</span>
+              <span className="font-medium text-sm text-gray-700">Certifié SOC 2</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span className="font-medium">RGPD Compliant</span>
+              <span className="font-medium text-sm text-gray-700">RGPD Compliant</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-              <span className="font-medium">PCI DSS Level 1</span>
+              <span className="font-medium text-sm text-gray-700">PCI DSS Level 1</span>
+            </div>
+            <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
+              <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+              <span className="font-medium text-sm text-gray-700">ISO 27001</span>
+            </div>
+            <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
+              <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+              <span className="font-medium text-sm text-gray-700">ACPR Agréé</span>
+            </div>
+            <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
+              <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
+              <span className="font-medium text-sm text-gray-700">3D Secure 2.0</span>
+            </div>
+            <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
+              <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
+              <span className="font-medium text-sm text-gray-700">AML/KYC</span>
+            </div>
+            <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
+              <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+              <span className="font-medium text-sm text-gray-700">Open Banking</span>
             </div>
           </div>
         </div>
