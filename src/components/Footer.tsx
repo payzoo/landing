@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -20,10 +22,10 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center">
             <p className="text-sm text-gray-600 font-light">
-              © {currentYear} Payzoo. Tous droits réservés.
+              © {currentYear} Payzoo. {t('footer.copyright')}
             </p>
             <p className="text-xs text-gray-500 mt-1 font-light">
-              Le paiement nouvelle génération
+              {t('footer.tagline')}
             </p>
           </div>
 

@@ -8,8 +8,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Users } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const PartnersSection = () => {
+  const { t } = useLanguage();
+  
   const partners = [
     {
       name: 'Microsoft for Startups',
@@ -51,13 +54,13 @@ const PartnersSection = () => {
         <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/50 backdrop-blur-sm mb-8">
             <Users className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-medium text-blue-700">Nos partenaires</span>
+            <span className="text-sm font-medium text-blue-700">{t('partners.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6 tracking-tight">
-            Soutenus par les <span className="font-medium">leaders technologiques</span>
+            {t('partners.title')} <span className="font-medium">{t('partners.title.highlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
-            Des partenariats stratégiques pour garantir l'excellence de notre plateforme
+            {t('partners.description')}
           </p>
         </div>
         
@@ -97,27 +100,27 @@ const PartnersSection = () => {
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="font-medium text-sm text-gray-700">Certifié SOC 2</span>
+              <span className="font-medium text-sm text-gray-700">{t('partners.soc2')}</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span className="font-medium text-sm text-gray-700">RGPD Compliant</span>
+              <span className="font-medium text-sm text-gray-700">{t('partners.gdpr')}</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-              <span className="font-medium text-sm text-gray-700">PCI DSS Level 1</span>
+              <span className="font-medium text-sm text-gray-700">{t('partners.pci')}</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              <span className="font-medium text-sm text-gray-700">ISO 27001</span>
+              <span className="font-medium text-sm text-gray-700">{t('partners.iso')}</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-              <span className="font-medium text-sm text-gray-700">3D Secure 2.0</span>
+              <span className="font-medium text-sm text-gray-700">{t('partners.3ds')}</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-              <span className="font-medium text-sm text-gray-700">AML/KYC</span>
+              <span className="font-medium text-sm text-gray-700">{t('partners.aml')}</span>
             </div>
           </div>
         </div>

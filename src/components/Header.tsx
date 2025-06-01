@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import LanguageSelector from './LanguageSelector';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,12 +19,12 @@ const Header = () => {
 
           {/* Navigation placeholder for future use */}
           <div className="hidden md:flex items-center space-x-8">
-            {/* Navigation items can be added here later */}
+            <LanguageSelector />
           </div>
 
           {/* Mobile menu button placeholder */}
           <div className="md:hidden">
-            {/* Mobile menu toggle can be added here later */}
+            <LanguageSelector />
           </div>
         </div>
       </div>

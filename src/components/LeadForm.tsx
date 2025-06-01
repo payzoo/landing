@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Phone, ArrowRight } from 'lucide-react';
 
 const countries = [
@@ -21,6 +21,7 @@ const LeadForm = () => {
   const [selectedCountry, setSelectedCountry] = useState('CI');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const currentCountry = countries.find(c => c.code === selectedCountry) || countries[0];
 
@@ -29,8 +30,8 @@ const LeadForm = () => {
     
     if (!phone) {
       toast({
-        title: "Erreur",
-        description: "Veuillez entrer votre numéro de téléphone.",
+        title: t('form.error.title'),
+        description: t('form.error.phone'),
         variant: "destructive"
       });
       return;
@@ -45,15 +46,15 @@ const LeadForm = () => {
       console.log('Lead submitted:', { phone: fullPhoneNumber, country: selectedCountry });
       
       toast({
-        title: "Merci !",
-        description: "Nous vous tiendrons informé du lancement de Payzoo.",
+        title: t('form.success.title'),
+        description: t('form.success.description'),
       });
       
       setPhone('');
     } catch (error) {
       toast({
-        title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
+        title: t('form.error.title'),
+        description: t('form.error.description'),
         variant: "destructive"
       });
     } finally {
@@ -70,10 +71,10 @@ const LeadForm = () => {
               <span className="text-white text-2xl">📱</span>
             </div>
             <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-tight">
-              Rejoignez l'aventure <span className="font-medium">Payzoo</span>
+              {t('form.title')} <span className="font-medium">{t('form.title.highlight')}</span>
             </h3>
             <p className="text-gray-600 leading-relaxed font-light">
-              Soyez les premiers informés du lancement
+              {t('form.description')}
             </p>
           </div>
 
@@ -115,7 +116,7 @@ const LeadForm = () => {
                 <div className="flex-1 relative">
                   <Input
                     type="tel"
-                    placeholder="01 23 45 67 89"
+                    placeholder={t('form.phone.placeholder')}
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="h-14 border-0 bg-transparent hover:bg-white/50 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 text-base font-medium text-gray-900 placeholder:text-gray-500 rounded-xl px-4 transition-all duration-200"
@@ -135,11 +136,11 @@ const LeadForm = () => {
               {isSubmitting ? (
                 <div className="flex items-center space-x-3">
                   <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                  <span>Inscription...</span>
+                  <span>{t('form.submitting')}</span>
                 </div>
               ) : (
                 <div className="flex items-center space-x-3">
-                  <span>Découvrir en premier</span>
+                  <span>{t('form.submit')}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </div>
               )}
@@ -149,11 +150,11 @@ const LeadForm = () => {
             <div className="flex items-center justify-center space-x-8 text-xs text-gray-500 pt-4">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="font-medium">100% sécurisé</span>
+                <span className="font-medium">{t('form.secure')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="font-medium">Sans engagement</span>
+                <span className="font-medium">{t('form.no.commitment')}</span>
               </div>
             </div>
           </form>
@@ -165,8 +166,8 @@ const LeadForm = () => {
                 <span className="text-white text-xs font-bold">✓</span>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 text-sm mb-1">Accès prioritaire</h4>
-                <p className="text-xs text-gray-600 font-light">Découvrez Payzoo avant tout le monde</p>
+                <h4 className="font-medium text-gray-900 text-sm mb-1">{t('form.priority.access')}</h4>
+                <p className="text-xs text-gray-600 font-light">{t('form.priority.access.desc')}</p>
               </div>
             </div>
             <div className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50">
@@ -174,8 +175,8 @@ const LeadForm = () => {
                 <span className="text-white text-xs font-bold">✓</span>
               </div>
               <div>
-                <h4 className="font-medium text-gray-900 text-sm mb-1">Tarifs préférentiels</h4>
-                <p className="text-xs text-gray-600 font-light">Bénéficiez d'offres exclusives au lancement</p>
+                <h4 className="font-medium text-gray-900 text-sm mb-1">{t('form.preferential.rates')}</h4>
+                <p className="text-xs text-gray-600 font-light">{t('form.preferential.rates.desc')}</p>
               </div>
             </div>
           </div>
