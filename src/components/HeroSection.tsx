@@ -12,7 +12,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="pt-20 pb-16 bg-gradient-to-br from-gray-50 to-white">
+    <section className="pt-20 pb-16 bg-gradient-to-br from-gray-50 to-white min-h-screen flex items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
@@ -65,20 +65,13 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 onClick={() => scrollToSection('signup')}
                 className="bg-[#B4DE00] hover:bg-[#9BC400] text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-lg"
               >
                 Je veux être informé
-              </Button>
-              <Button 
-                variant="outline" 
-                onClick={() => scrollToSection('features')}
-                className="border-[#B4DE00] text-[#B4DE00] hover:bg-[#B4DE00]/10 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
-              >
-                Découvrir les fonctionnalités
               </Button>
             </div>
           </div>

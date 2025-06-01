@@ -27,18 +27,6 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('why-payzoo')}
-              className="text-gray-600 hover:text-[#B4DE00] transition-colors font-medium"
-            >
-              Pourquoi Payzoo
-            </button>
-            <button 
-              onClick={() => scrollToSection('faq')}
-              className="text-gray-600 hover:text-[#B4DE00] transition-colors font-medium"
-            >
-              FAQ
-            </button>
             <Button 
               onClick={() => scrollToSection('signup')}
               className="bg-[#B4DE00] hover:bg-[#9BC400] text-black px-6 py-2 rounded-lg font-medium transition-colors"
@@ -64,18 +52,6 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-100 py-4 animate-fade-in">
             <nav className="flex flex-col space-y-4">
-              <button 
-                onClick={() => scrollToSection('why-payzoo')}
-                className="text-gray-600 hover:text-[#B4DE00] transition-colors font-medium text-left"
-              >
-                Pourquoi Payzoo
-              </button>
-              <button 
-                onClick={() => scrollToSection('faq')}
-                className="text-gray-600 hover:text-[#B4DE00] transition-colors font-medium text-left"
-              >
-                FAQ
-              </button>
               <Button 
                 onClick={() => scrollToSection('signup')}
                 className="bg-[#B4DE00] hover:bg-[#9BC400] text-black w-full py-2 rounded-lg font-medium transition-colors"
