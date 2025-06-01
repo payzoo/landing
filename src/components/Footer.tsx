@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,16 +32,16 @@ const Footer = () => {
             <a 
               href="#" 
               className="w-10 h-10 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:border-gray-900 transition-all duration-200 group"
-              aria-label="GitHub"
+              aria-label="Facebook"
             >
-              <Github className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
+              <Facebook className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
             </a>
             <a 
               href="#" 
               className="w-10 h-10 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:border-gray-900 transition-all duration-200 group"
-              aria-label="Twitter"
+              aria-label="Instagram"
             >
-              <Twitter className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
+              <Instagram className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
             </a>
             <a 
               href="#" 
