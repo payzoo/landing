@@ -24,8 +24,8 @@ const PartnersSection = () => {
   return (
     <section className="py-4 bg-gray-50/50 mb-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-3">
-          <p className="text-xs text-gray-600 font-medium">
+        <div className="text-center mb-6">
+          <p className="text-sm text-gray-700 font-semibold">
             Trusted by these companies so far
           </p>
         </div>
