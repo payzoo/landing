@@ -71,7 +71,7 @@ const LeadForm = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#B4DE00]/10 to-transparent rounded-3xl"></div>
       
-      <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/20 max-w-md mx-auto">
+      <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/20 max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#B4DE00] to-[#9BC400] rounded-2xl mb-6 shadow-lg">
             <Sparkles className="w-8 h-8 text-white" />
@@ -85,9 +85,10 @@ const LeadForm = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-4">
+          {/* Formulaire en une ligne */}
+          <div className="flex flex-col lg:flex-row gap-4 items-end">
             {/* Country Selector */}
-            <div>
+            <div className="w-full lg:w-64">
               <label className="block text-sm font-medium text-gray-700 mb-2">Pays</label>
               <Select value={selectedCountry} onValueChange={setSelectedCountry}>
                 <SelectTrigger className="h-12 border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm">
@@ -95,7 +96,6 @@ const LeadForm = () => {
                     <div className="flex items-center space-x-3">
                       <span className="text-xl">{currentCountry.flag}</span>
                       <span className="font-medium">{currentCountry.dialCode}</span>
-                      <span className="text-gray-600">{currentCountry.name}</span>
                     </div>
                   </SelectValue>
                 </SelectTrigger>
@@ -118,42 +118,42 @@ const LeadForm = () => {
             </div>
 
             {/* Phone Number Input */}
-            <div>
+            <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700 mb-2">Numéro de téléphone</label>
               <div className="relative">
                 <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <div className="absolute left-12 top-1/2 transform -translate-y-1/2 text-gray-600 font-medium">
-                  {currentCountry.dialCode}
-                </div>
                 <Input
                   type="tel"
                   placeholder="6 12 34 56 78"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="pl-24 h-12 text-lg border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm"
+                  className="pl-12 h-12 text-lg border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm"
                   required
                 />
               </div>
             </div>
-          </div>
 
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-[#B4DE00] to-[#9BC400] hover:from-[#9BC400] hover:to-[#8AB300] text-black py-4 h-14 rounded-xl font-bold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl group"
-          >
-            {isSubmitting ? (
-              <div className="flex items-center justify-center space-x-2">
-                <div className="w-5 h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-                <span>Inscription...</span>
-              </div>
-            ) : (
-              <div className="flex items-center justify-center space-x-2">
-                <span>Je veux être informé</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            )}
-          </Button>
+            {/* Submit Button */}
+            <div className="w-full lg:w-auto">
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full lg:w-auto bg-gradient-to-r from-[#B4DE00] to-[#9BC400] hover:from-[#9BC400] hover:to-[#8AB300] text-black px-8 h-12 rounded-xl font-bold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl group"
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-5 h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                    <span>Inscription...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center space-x-2">
+                    <span>Je veux être informé</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                )}
+              </Button>
+            </div>
+          </div>
 
           <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
             <div className="flex items-center space-x-1">
@@ -169,7 +169,7 @@ const LeadForm = () => {
         </form>
 
         {/* Benefits */}
-        <div className="mt-8 space-y-3">
+        <div className="mt-8 grid md:grid-cols-3 gap-4">
           <div className="flex items-center space-x-3 text-sm text-gray-600">
             <div className="w-5 h-5 bg-[#B4DE00]/20 rounded-full flex items-center justify-center">
               <span className="text-xs">✓</span>
