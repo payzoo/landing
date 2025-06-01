@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const PartnersSection = () => {
@@ -65,7 +64,7 @@ const PartnersSection = () => {
 
         {/* Trust indicators */}
         <div className="mt-16 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               <span className="font-medium text-sm text-gray-700">Certifié SOC 2</span>
