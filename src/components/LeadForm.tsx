@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -85,20 +86,19 @@ const LeadForm = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Phone input with better visibility */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-              <div className="space-y-4">
+            {/* New form design with better phone visibility */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2">
+              <div className="flex items-center gap-2">
                 {/* Country Selector */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">Pays</label>
+                <div className="flex-shrink-0">
                   <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-                    <SelectTrigger className="h-14 border-2 border-gray-200 hover:border-[#B4DE00] focus:border-[#B4DE00] focus:ring-[#B4DE00]/20 rounded-xl px-4 transition-all duration-200">
+                    <SelectTrigger className="h-16 border-0 bg-transparent hover:bg-gray-50 focus:ring-0 focus:ring-offset-0 rounded-xl px-4 min-w-[160px] transition-all duration-200">
                       <SelectValue>
                         <div className="flex items-center space-x-3">
                           <span className="text-2xl">{currentCountry.flag}</span>
                           <div className="text-left">
                             <div className="font-bold text-gray-900 text-base">{currentCountry.dialCode}</div>
-                            <div className="text-sm text-gray-500">{currentCountry.name}</div>
+                            <div className="text-xs text-gray-500">{currentCountry.name}</div>
                           </div>
                         </div>
                       </SelectValue>
@@ -121,43 +121,48 @@ const LeadForm = () => {
                   </Select>
                 </div>
 
+                {/* Separator */}
+                <div className="h-12 w-px bg-gray-200 mx-2"></div>
+
                 {/* Phone Number Input with enhanced visibility */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">Numéro de téléphone</label>
+                <div className="flex-1 relative">
                   <div className="relative">
                     <Input
                       type="tel"
                       placeholder="01 23 45 67 89"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="h-14 border-2 border-gray-200 hover:border-[#B4DE00] focus-visible:ring-[#B4DE00]/20 focus-visible:border-[#B4DE00] text-lg font-semibold text-gray-900 placeholder:text-gray-400 placeholder:font-normal rounded-xl px-4 pr-12 transition-all duration-200 bg-gray-50/50"
+                      className="h-16 border-0 bg-transparent hover:bg-gray-50 focus-visible:ring-0 focus-visible:ring-offset-0 text-xl font-semibold text-gray-900 placeholder:text-gray-400 placeholder:font-normal rounded-xl px-4 pr-12 transition-all duration-200"
                       required
                     />
-                    <Phone className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Phone className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" />
+                  </div>
+                  <div className="absolute top-2 left-4 text-xs font-medium text-gray-500 uppercase tracking-wide">
+                    Numéro de téléphone
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Submit Button moved below */}
-            <div className="flex justify-center">
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-900 text-white px-12 h-14 rounded-xl font-semibold text-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 min-w-[200px]"
-              >
-                {isSubmitting ? (
-                  <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                    <span>Envoi...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center space-x-3">
-                    <span>M'inscrire</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-                  </div>
-                )}
-              </Button>
+                {/* Submit Button */}
+                <div className="flex-shrink-0">
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-900 text-white px-8 h-16 rounded-xl font-semibold text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  >
+                    {isSubmitting ? (
+                      <div className="flex items-center space-x-3">
+                        <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                        <span>Envoi...</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center space-x-3">
+                        <span>M'inscrire</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                      </div>
+                    )}
+                  </Button>
+                </div>
+              </div>
             </div>
 
             {/* Trust indicators */}
