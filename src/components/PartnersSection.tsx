@@ -21,7 +21,7 @@ const PartnersSection = () => {
     },
     {
       name: 'Grafana',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Grafana_logo.svg'
+      logo: 'https://grafana.com/static/img/logos/grafana_logo_swirl-events.svg'
     },
     {
       name: 'Terraform',
@@ -83,20 +83,12 @@ const PartnersSection = () => {
               <span className="font-medium text-sm text-gray-700">ISO 27001</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
-              <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-              <span className="font-medium text-sm text-gray-700">ACPR Agréé</span>
-            </div>
-            <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
               <span className="font-medium text-sm text-gray-700">3D Secure 2.0</span>
             </div>
             <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
               <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
               <span className="font-medium text-sm text-gray-700">AML/KYC</span>
-            </div>
-            <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-6 py-3">
-              <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
-              <span className="font-medium text-sm text-gray-700">Open Banking</span>
             </div>
           </div>
         </div>
