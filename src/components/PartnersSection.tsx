@@ -46,8 +46,8 @@ const PartnersSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white border-t border-gray-100">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-white border-t border-gray-100 w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/50 backdrop-blur-sm mb-8">
             <Users className="w-4 h-4 text-blue-600" />
@@ -61,13 +61,13 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto">
+        <div className="w-full flex justify-center">
           <Carousel
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
             }}
-            className="w-full"
+            className="w-full max-w-6xl"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {partners.map((partner, index) => (
