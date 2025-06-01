@@ -3,20 +3,20 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, ArrowRight, Sparkles } from 'lucide-react';
+import { Phone, ArrowRight, Sparkles } from 'lucide-react';
 
 const LeadForm = () => {
-  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email) {
+    if (!phone) {
       toast({
         title: "Erreur",
-        description: "Veuillez entrer votre adresse email.",
+        description: "Veuillez entrer votre numéro de téléphone.",
         variant: "destructive"
       });
       return;
@@ -27,14 +27,14 @@ const LeadForm = () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      console.log('Lead submitted:', { email });
+      console.log('Lead submitted:', { phone });
       
       toast({
         title: "Merci !",
         description: "Nous vous tiendrons informé du lancement de Payzoo.",
       });
       
-      setEmail('');
+      setPhone('');
     } catch (error) {
       toast({
         title: "Erreur",
@@ -66,12 +66,12 @@ const LeadForm = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="relative">
-            <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
             <Input
-              type="email"
-              placeholder="votre@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="tel"
+              placeholder="+33 6 12 34 56 78"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               className="pl-12 h-14 text-lg border-gray-200 focus:border-[#B4DE00] focus:ring-2 focus:ring-[#B4DE00]/20 rounded-xl bg-white/50 backdrop-blur-sm"
               required
             />
