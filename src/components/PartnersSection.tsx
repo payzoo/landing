@@ -45,7 +45,7 @@ const PartnersSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white border-t border-gray-100 w-full">
+    <section className="py-24 bg-white border-t border-gray-100 w-full overflow-hidden">
       <div className="w-full">
         <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/50 backdrop-blur-sm mb-8">
@@ -60,7 +60,7 @@ const PartnersSection = () => {
           </p>
         </div>
         
-        <div className="w-full">
+        <div className="relative px-16 lg:px-20">
           <Carousel
             opts={{
               align: "center",
@@ -68,10 +68,10 @@ const PartnersSection = () => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="flex items-center">
               {partners.map((partner, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/3 md:basis-1/4 lg:basis-1/6">
-                  <div className="group flex items-center justify-center p-6 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 h-24">
+                <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6 flex justify-center">
+                  <div className="group flex items-center justify-center p-6 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 transition-all duration-300 h-24 w-full">
                     <img 
                       src={partner.logo} 
                       alt={partner.name}
@@ -85,8 +85,8 @@ const PartnersSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10" />
+            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10" />
           </Carousel>
         </div>
 
