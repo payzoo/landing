@@ -1,7 +1,6 @@
 
 import React from 'react';
 import LeadForm from './LeadForm';
-import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
@@ -63,16 +62,6 @@ const HeroSection = () => {
                   <p className="text-xs text-gray-600">API unifiée</p>
                 </div>
               </div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                onClick={() => scrollToSection('signup')}
-                className="bg-[#B4DE00] hover:bg-[#9BC400] text-black px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105 shadow-lg"
-              >
-                Je veux être informé
-              </Button>
             </div>
           </div>
 
