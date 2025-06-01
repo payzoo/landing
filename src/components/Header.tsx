@@ -28,22 +28,16 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <button 
-              onClick={() => scrollToSection('features')}
-              className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
-            >
-              Fonctionnalités
-            </button>
-            <button 
               onClick={() => scrollToSection('why-payzoo')}
               className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
             >
               Pourquoi Payzoo
             </button>
             <button 
-              onClick={() => scrollToSection('how-it-works')}
+              onClick={() => scrollToSection('faq')}
               className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
             >
-              Comment ça marche
+              FAQ
             </button>
             <Button 
               onClick={() => scrollToSection('signup')}
@@ -71,22 +65,16 @@ const Header = () => {
           <div className="md:hidden border-t border-gray-100 py-4 animate-fade-in">
             <nav className="flex flex-col space-y-4">
               <button 
-                onClick={() => scrollToSection('features')}
-                className="text-gray-600 hover:text-emerald-600 transition-colors font-medium text-left"
-              >
-                Fonctionnalités
-              </button>
-              <button 
                 onClick={() => scrollToSection('why-payzoo')}
                 className="text-gray-600 hover:text-emerald-600 transition-colors font-medium text-left"
               >
                 Pourquoi Payzoo
               </button>
               <button 
-                onClick={() => scrollToSection('how-it-works')}
+                onClick={() => scrollToSection('faq')}
                 className="text-gray-600 hover:text-emerald-600 transition-colors font-medium text-left"
               >
-                Comment ça marche
+                FAQ
               </button>
               <Button 
                 onClick={() => scrollToSection('signup')}
