@@ -150,7 +150,7 @@ const LeadForm = () => {
                 </div>
               ) : (
                 <div className="flex items-center space-x-3">
-                  <span>M'inscrire gratuitement</span>
+                  <span>Découvrir en premier</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </div>
               )}
