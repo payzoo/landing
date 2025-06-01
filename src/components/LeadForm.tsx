@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,14 +8,14 @@ import { useToast } from '@/hooks/use-toast';
 import { User, Phone, Check } from 'lucide-react';
 
 const countryData = {
-  ci: { name: '🇨🇮 Côte d\'Ivoire', code: '+225' },
-  fr: { name: '🇫🇷 France', code: '+33' },
-  sn: { name: '🇸🇳 Sénégal', code: '+221' },
-  gh: { name: '🇬🇭 Ghana', code: '+233' },
-  ml: { name: '🇲🇱 Mali', code: '+223' },
-  bj: { name: '🇧🇯 Bénin', code: '+229' },
-  bf: { name: '🇧🇫 Burkina Faso', code: '+226' },
-  other: { name: '🌍 Autre', code: '+' }
+  ci: { name: '🇨🇮 Côte d\'Ivoire', flag: '🇨🇮', code: '+225' },
+  fr: { name: '🇫🇷 France', flag: '🇫🇷', code: '+33' },
+  sn: { name: '🇸🇳 Sénégal', flag: '🇸🇳', code: '+221' },
+  gh: { name: '🇬🇭 Ghana', flag: '🇬🇭', code: '+233' },
+  ml: { name: '🇲🇱 Mali', flag: '🇲🇱', code: '+223' },
+  bj: { name: '🇧🇯 Bénin', flag: '🇧🇯', code: '+229' },
+  bf: { name: '🇧🇫 Burkina Faso', flag: '🇧🇫', code: '+226' },
+  other: { name: '🌍 Autre', flag: '🌍', code: '+' }
 };
 
 const LeadForm = () => {
@@ -98,16 +99,18 @@ const LeadForm = () => {
             Pays et numéro de téléphone
           </Label>
           <div className="flex gap-2">
-            {/* Country Selection - No icon */}
+            {/* Country Selection - Only flags */}
             <div className="relative w-1/3">
               <Select value={formData.country} onValueChange={(value) => setFormData({...formData, country: value})}>
                 <SelectTrigger className="h-11 border-gray-200 focus:border-[#B4DE00] focus:ring-1 focus:ring-[#B4DE00] rounded-lg">
-                  <SelectValue placeholder="Pays" />
+                  <SelectValue placeholder="🌍">
+                    {formData.country ? countryData[formData.country as keyof typeof countryData]?.flag : '🌍'}
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                   {Object.entries(countryData).map(([key, value]) => (
                     <SelectItem key={key} value={key} className="rounded-md">
-                      {value.name}
+                      {value.flag}
                     </SelectItem>
                   ))}
                 </SelectContent>
