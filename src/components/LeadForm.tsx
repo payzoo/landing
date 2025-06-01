@@ -86,21 +86,24 @@ const LeadForm = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Formulaire moderne en une ligne */}
-            <div className="relative group">
-              <div className="flex items-stretch gap-0 bg-gradient-to-r from-gray-50 to-gray-50/80 rounded-2xl p-1.5 border border-gray-200/60 focus-within:border-[#B4DE00]/50 focus-within:ring-4 focus-within:ring-[#B4DE00]/10 transition-all duration-300 shadow-sm hover:shadow-md">
+            {/* New form design with better phone visibility */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2">
+              <div className="flex items-center gap-2">
                 {/* Country Selector */}
                 <div className="flex-shrink-0">
                   <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-                    <SelectTrigger className="h-14 border-0 bg-white/70 hover:bg-white focus:ring-0 focus:ring-offset-0 rounded-xl px-4 min-w-[140px] shadow-sm transition-all duration-200">
+                    <SelectTrigger className="h-16 border-0 bg-transparent hover:bg-gray-50 focus:ring-0 focus:ring-offset-0 rounded-xl px-4 min-w-[160px] transition-all duration-200">
                       <SelectValue>
                         <div className="flex items-center space-x-3">
                           <span className="text-2xl">{currentCountry.flag}</span>
-                          <span className="font-semibold text-gray-700">{currentCountry.dialCode}</span>
+                          <div className="text-left">
+                            <div className="font-bold text-gray-900 text-base">{currentCountry.dialCode}</div>
+                            <div className="text-xs text-gray-500">{currentCountry.name}</div>
+                          </div>
                         </div>
                       </SelectValue>
                     </SelectTrigger>
-                    <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-xl max-h-60 z-50 backdrop-blur-sm">
+                    <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-xl max-h-60 z-50">
                       {countries.map((country) => (
                         <SelectItem 
                           key={country.code} 
@@ -119,21 +122,24 @@ const LeadForm = () => {
                 </div>
 
                 {/* Separator */}
-                <div className="flex items-center px-2">
-                  <div className="w-px h-10 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
-                </div>
+                <div className="h-12 w-px bg-gray-200 mx-2"></div>
 
-                {/* Phone Number Input */}
+                {/* Phone Number Input with enhanced visibility */}
                 <div className="flex-1 relative">
-                  <Input
-                    type="tel"
-                    placeholder="6 12 34 56 78"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="h-14 border-0 bg-white/70 hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 text-lg placeholder:text-gray-500 font-medium rounded-xl px-4 transition-all duration-200"
-                    required
-                  />
-                  <Phone className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <div className="relative">
+                    <Input
+                      type="tel"
+                      placeholder="01 23 45 67 89"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="h-16 border-0 bg-transparent hover:bg-gray-50 focus-visible:ring-0 focus-visible:ring-offset-0 text-xl font-semibold text-gray-900 placeholder:text-gray-400 placeholder:font-normal rounded-xl px-4 pr-12 transition-all duration-200"
+                      required
+                    />
+                    <Phone className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" />
+                  </div>
+                  <div className="absolute top-2 left-4 text-xs font-medium text-gray-500 uppercase tracking-wide">
+                    Numéro de téléphone
+                  </div>
                 </div>
 
                 {/* Submit Button */}
@@ -141,16 +147,16 @@ const LeadForm = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-900 text-white px-8 h-14 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-900 text-white px-8 h-16 rounded-xl font-semibold text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                   >
                     {isSubmitting ? (
-                      <div className="flex items-center space-x-2">
-                        <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                      <div className="flex items-center space-x-3">
+                        <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                         <span>Envoi...</span>
                       </div>
                     ) : (
-                      <div className="flex items-center space-x-2">
-                        <span>Découvrir en premier</span>
+                      <div className="flex items-center space-x-3">
+                        <span>M'inscrire</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                       </div>
                     )}
