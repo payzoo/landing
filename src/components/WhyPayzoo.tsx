@@ -64,8 +64,8 @@ const WhyPayzoo = () => {
           </p>
         </div>
 
-        {/* Tab Navigation - Aligned to left */}
-        <div className="mb-16 max-w-6xl mx-auto">
+        {/* Tab Navigation */}
+        <div className="flex justify-center mb-16">
           <div className="inline-flex bg-white rounded-2xl p-2 shadow-sm border border-gray-200">
             {tabs.map((tab) => (
               <Button
