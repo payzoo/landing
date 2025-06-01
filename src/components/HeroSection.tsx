@@ -29,10 +29,10 @@ const HeroSection = () => {
               </div>
               
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Payzoo arrive bientôt :
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B4DE00] to-[#9BC400] block mt-2">
-                    le paiement nouvelle génération
+                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                  Le paiement nouvelle
+                  <span className="block mt-2">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B4DE00] to-[#9BC400]">génération</span>
                   </span>
                 </h1>
                 
