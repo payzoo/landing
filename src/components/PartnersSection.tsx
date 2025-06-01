@@ -21,7 +21,7 @@ const PartnersSection = () => {
     },
     {
       name: 'Grafana',
-      logo: 'https://grafana.com/static/img/logos/grafana_logo.svg'
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Grafana_logo.svg'
     },
     {
       name: 'Terraform',
@@ -53,8 +53,11 @@ const PartnersSection = () => {
               <img 
                 src={partner.logo} 
                 alt={partner.name}
-                className="w-full h-12 object-contain opacity-40 group-hover:opacity-70 transition-opacity filter grayscale group-hover:grayscale-0"
+                className="w-full h-12 object-contain opacity-60 group-hover:opacity-80 transition-opacity"
                 title={partner.name}
+                onError={(e) => {
+                  console.log(`Failed to load logo for ${partner.name}: ${partner.logo}`);
+                }}
               />
             </div>
           ))}
