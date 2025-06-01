@@ -85,19 +85,19 @@ const LeadForm = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
-            {/* New form design with better phone visibility */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2">
-              <div className="flex items-center gap-2">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Form with improved phone field visibility */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-3">
+              <div className="flex items-stretch gap-3">
                 {/* Country Selector */}
                 <div className="flex-shrink-0">
                   <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-                    <SelectTrigger className="h-16 border-0 bg-transparent hover:bg-gray-50 focus:ring-0 focus:ring-offset-0 rounded-xl px-4 min-w-[160px] transition-all duration-200">
+                    <SelectTrigger className="h-14 border-0 bg-gray-50 hover:bg-gray-100 focus:ring-0 focus:ring-offset-0 rounded-xl px-4 min-w-[140px] transition-all duration-200">
                       <SelectValue>
-                        <div className="flex items-center space-x-3">
-                          <span className="text-2xl">{currentCountry.flag}</span>
+                        <div className="flex items-center space-x-2">
+                          <span className="text-xl">{currentCountry.flag}</span>
                           <div className="text-left">
-                            <div className="font-bold text-gray-900 text-base">{currentCountry.dialCode}</div>
+                            <div className="font-bold text-gray-900 text-sm">{currentCountry.dialCode}</div>
                             <div className="text-xs text-gray-500">{currentCountry.name}</div>
                           </div>
                         </div>
@@ -111,7 +111,7 @@ const LeadForm = () => {
                           className="flex items-center space-x-3 px-4 py-3 hover:bg-[#B4DE00]/5 cursor-pointer transition-colors duration-150"
                         >
                           <div className="flex items-center space-x-3 w-full">
-                            <span className="text-xl">{country.flag}</span>
+                            <span className="text-lg">{country.flag}</span>
                             <span className="font-semibold text-[#B4DE00]">{country.dialCode}</span>
                             <span className="text-gray-700 font-medium">{country.name}</span>
                           </div>
@@ -122,47 +122,45 @@ const LeadForm = () => {
                 </div>
 
                 {/* Separator */}
-                <div className="h-12 w-px bg-gray-200 mx-2"></div>
+                <div className="h-10 w-px bg-gray-200 mx-1 self-center"></div>
 
-                {/* Phone Number Input with enhanced visibility */}
+                {/* Phone Number Input - Improved visibility */}
                 <div className="flex-1 relative">
-                  <div className="relative">
-                    <Input
-                      type="tel"
-                      placeholder="01 23 45 67 89"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="h-16 border-0 bg-transparent hover:bg-gray-50 focus-visible:ring-0 focus-visible:ring-offset-0 text-xl font-semibold text-gray-900 placeholder:text-gray-400 placeholder:font-normal rounded-xl px-4 pr-12 transition-all duration-200"
-                      required
-                    />
-                    <Phone className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" />
-                  </div>
-                  <div className="absolute top-2 left-4 text-xs font-medium text-gray-500 uppercase tracking-wide">
+                  <Input
+                    type="tel"
+                    placeholder="01 23 45 67 89"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="h-14 border-0 bg-gray-50 hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-[#B4DE00] focus-visible:ring-offset-0 text-lg font-semibold text-gray-900 placeholder:text-gray-500 placeholder:font-normal rounded-xl px-4 pr-12 transition-all duration-200"
+                    required
+                  />
+                  <Phone className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <div className="absolute top-1 left-4 text-xs font-medium text-gray-500 uppercase tracking-wide">
                     Numéro de téléphone
                   </div>
                 </div>
-
-                {/* Submit Button */}
-                <div className="flex-shrink-0">
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-900 text-white px-8 h-16 rounded-xl font-semibold text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center space-x-3">
-                        <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                        <span>Envoi...</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center space-x-3">
-                        <span>M'inscrire</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-                      </div>
-                    )}
-                  </Button>
-                </div>
               </div>
+            </div>
+
+            {/* Submit Button - Positioned below */}
+            <div className="flex justify-center">
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-900 text-white px-12 h-14 rounded-xl font-semibold text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center space-x-3">
+                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                    <span>Envoi...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center space-x-3">
+                    <span>M'inscrire</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                  </div>
+                )}
+              </Button>
             </div>
 
             {/* Trust indicators */}
