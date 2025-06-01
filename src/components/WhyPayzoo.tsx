@@ -3,52 +3,55 @@ import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const WhyPayzoo = () => {
+  const { t } = useLanguage();
+  
   const tabs = [
     {
       id: 'particuliers',
-      label: 'Particuliers',
+      label: t('whypayzoo.individuals'),
       gradient: 'from-blue-500 to-purple-600',
       color: 'bg-blue-50 text-blue-700',
-      title: 'Votre portefeuille digital intelligent',
-      subtitle: 'Payez, recevez et transférez comme jamais auparavant ✨',
+      title: t('whypayzoo.individuals.title'),
+      subtitle: t('whypayzoo.individuals.subtitle'),
       benefits: [
-        'Scanner pour payer en 2 secondes ⚡',
-        'Recevoir des demandes instantanément 📱',
-        'Transférer sans friction entre wallets 🔄',
-        'Tap to Pay : magie sans QR Code ✨',
-        'Tous vos moyens de paiement réunis 🎯'
+        t('whypayzoo.individuals.benefit1'),
+        t('whypayzoo.individuals.benefit2'),
+        t('whypayzoo.individuals.benefit3'),
+        t('whypayzoo.individuals.benefit4'),
+        t('whypayzoo.individuals.benefit5')
       ]
     },
     {
       id: 'marchands',
-      label: 'Marchands',
+      label: t('whypayzoo.merchants'),
       gradient: 'from-emerald-500 to-teal-600',
       color: 'bg-emerald-50 text-emerald-700',
-      title: 'Votre terminal de paiement révolutionnaire',
-      subtitle: 'Vendez plus, vendez mieux, vendez partout 🎉',
+      title: t('whypayzoo.merchants.title'),
+      subtitle: t('whypayzoo.merchants.subtitle'),
       benefits: [
-        'Dashboard intuitif et sexy 📊',
-        'QR Code unique généré automatiquement 🎯',
-        'Accepter tous les paiements sans effort 💫',
-        'Stats en temps réel qui font plaisir 📈',
-        'Gestion des remboursements simplifiée ✅'
+        t('whypayzoo.merchants.benefit1'),
+        t('whypayzoo.merchants.benefit2'),
+        t('whypayzoo.merchants.benefit3'),
+        t('whypayzoo.merchants.benefit4'),
+        t('whypayzoo.merchants.benefit5')
       ]
     },
     {
       id: 'developpeurs',
-      label: 'Développeurs',
+      label: t('whypayzoo.developers'),
       gradient: 'from-orange-500 to-red-600',
       color: 'bg-orange-50 text-orange-700',
-      title: 'L\'API de vos rêves enfin disponible',
-      subtitle: 'Code moins, intègre plus, impressionne davantage 🔥',
+      title: t('whypayzoo.developers.title'),
+      subtitle: t('whypayzoo.developers.subtitle'),
       benefits: [
-        'API RESTful qui fait tout le travail 🤖',
-        'Documentation claire et sandbox fun 📚',
-        'Webhooks temps réel ultra-rapides ⚡',
-        'SDKs pour tous vos langages préférés 💻',
-        'Intégration en 10 minutes chrono ⏱️'
+        t('whypayzoo.developers.benefit1'),
+        t('whypayzoo.developers.benefit2'),
+        t('whypayzoo.developers.benefit3'),
+        t('whypayzoo.developers.benefit4'),
+        t('whypayzoo.developers.benefit5')
       ]
     }
   ];
@@ -64,15 +67,15 @@ const WhyPayzoo = () => {
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/50 backdrop-blur-sm mb-8">
               <Sparkles className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-700">Innovation & simplicité</span>
+              <span className="text-sm font-medium text-blue-700">{t('whypayzoo.badge')}</span>
             </div>
             
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6 tracking-tight">
-              Conçu pour <span className="font-medium">tous les profils</span> 🎯
+              {t('whypayzoo.title')} <span className="font-medium">{t('whypayzoo.title.highlight')}</span> 🎯
             </h2>
             
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-              Une solution qui s'adapte à votre rythme, quel que soit votre profil
+              {t('whypayzoo.description')}
             </p>
           </div>
 
@@ -128,7 +131,7 @@ const WhyPayzoo = () => {
 
                     <div className="pt-6">
                       <button className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r ${tab.gradient} text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}>
-                        <span>Découvrir maintenant</span>
+                        <span>{t('whypayzoo.discover')}</span>
                         <ArrowRight className="w-5 h-5" />
                       </button>
                     </div>
