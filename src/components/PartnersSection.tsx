@@ -16,7 +16,7 @@ const PartnersSection = () => {
   const partners = [
     {
       name: 'Microsoft for Startups',
-      logo: '/lovable-uploads/00d0a090-3aff-440a-8d64-542d1f23cfaa.png'
+      logo: 'https://cdn.prod.website-files.com/632d8bdfaa1985f0059dd554/680baa01ea2c38d149f0ed37_logo_microsoft_for_startups.png'
     },
     {
       name: 'GitHub',
