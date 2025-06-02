@@ -15,7 +15,7 @@ const FAQ = () => {
       },
       {
         question: 'Puis-je utiliser Payzoo dans plusieurs pays ?',
-        answer: 'Oui ! Payzoo est conçu pour fonctionner dans plusieurs pays africains et européens. Nous commençons par la Côte d\'Ivoire, la France, le Sénégal et le Ghana, et nous étendrons progressivement notre couverture.'
+        answer: 'Oui ! Payzoo est conçu pour fonctionner dans plusieurs pays africains et européens. Nous commençons par la Côte d\'Ivoire et nous étendrons progressivement notre couverture.'
       },
       {
         question: 'Y a-t-il des frais de transaction ?',
@@ -41,7 +41,7 @@ const FAQ = () => {
       },
       {
         question: 'Can I use Payzoo in multiple countries?',
-        answer: 'Yes! Payzoo is designed to work in multiple African and European countries. We are starting with Ivory Coast, France, Senegal and Ghana, and will gradually expand our coverage.'
+        answer: 'Yes! Payzoo is designed to work in multiple African and European countries. We are starting with Ivory Coast and will gradually expand our coverage.'
       },
       {
         question: 'Are there transaction fees?',
