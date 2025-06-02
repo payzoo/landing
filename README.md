@@ -1,73 +1,94 @@
-# Welcome to your Lovable project
+# Payzoo Prelaunch Landing Page
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/a2c62903-9fb9-49b3-9719-ca4c4ad2848d
+Payzoo is a revolutionary payment solution designed for multiple African and European countries. This repository contains the prelaunch landing page for collecting leads before the official launch of the Payzoo service.
 
-## How can I edit this code?
+### Key Features of Payzoo
 
-There are several ways of editing your application.
+- **For Individuals**: Digital wallet with instant scan payments, real-time payment requests, unlimited wallet transfers, Tap to Pay functionality, and unified payment methods.
+- **For Merchants**: Revolutionary payment terminal with an intuitive dashboard, smart QR code, support for all payment methods, real-time analytics, and 1-click refunds.
+- **For Developers**: Powerful RESTful API with clear documentation, sandbox for testing, fast webhooks, SDKs for multiple languages, and quick 10-minute integration.
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a2c62903-9fb9-49b3-9719-ca4c4ad2848d) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js & npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Step 1: Clone the repository
+git clone https://github.com/payzoo/landing.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate to the project directory
+cd landing
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install the dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Project Structure
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite**: Fast build tool and development server
+- **TypeScript**: Type-safe JavaScript
+- **React**: UI library
+- **shadcn-ui**: UI component library
+- **Tailwind CSS**: Utility-first CSS framework
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/a2c62903-9fb9-49b3-9719-ca4c4ad2848d) and click on Share -> Publish.
+The project is configured to deploy automatically to GitHub Pages using GitHub Actions. The workflow is defined in `.github/workflows/deploy.yml`.
 
-## Can I connect a custom domain to my Lovable project?
+### Deployment Process
 
-Yes, you can!
+1. Push changes to the `main` branch
+2. GitHub Actions will automatically:
+   - Set up Node.js
+   - Install dependencies
+   - Build the project
+   - Deploy to GitHub Pages
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Permissions
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The GitHub Actions workflow requires write permissions to the repository contents. This is configured in the workflow file with:
+
+```yaml
+permissions:
+  contents: write
+```
+
+## Development
+
+### Available Scripts
+
+- `npm run dev`: Start the development server
+- `npm run build`: Build the project for production
+- `npm run preview`: Preview the production build locally
+
+## Multilingual Support
+
+The landing page supports both English and French languages, with content for:
+
+- Main sections
+- FAQ
+- Form elements
+- Feature descriptions
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is proprietary and confidential. All rights reserved.
