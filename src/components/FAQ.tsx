@@ -11,7 +11,7 @@ const FAQ = () => {
     fr: [
       {
         question: 'Quand la version bêta sera-t-elle disponible ?',
-        answer: 'Nous prévoyons de lancer la version bêta au premier trimestre 2024. Les utilisateurs inscrits sur notre liste d\'attente seront les premiers informés et auront un accès prioritaire.'
+        answer: 'Nous prévoyons de lancer la version bêta au dernier trimestre 2025. Les utilisateurs inscrits sur notre liste d\'attente seront les premiers informés et auront un accès prioritaire.'
       },
       {
         question: 'Puis-je utiliser Payzoo dans plusieurs pays ?',
@@ -37,7 +37,7 @@ const FAQ = () => {
     en: [
       {
         question: 'When will the beta version be available?',
-        answer: 'We plan to launch the beta version in the first quarter of 2024. Users registered on our waiting list will be the first to be informed and will have priority access.'
+        answer: 'We plan to launch the beta version in the last quarter of 2025. Users registered on our waiting list will be the first to be informed and will have priority access.'
       },
       {
         question: 'Can I use Payzoo in multiple countries?',
