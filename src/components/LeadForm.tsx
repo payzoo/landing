@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Phone, ArrowRight } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const countries = [
   { code: 'CI', name: 'Côte d\'Ivoire', flag: '🇨🇮', dialCode: '+225' },
-  { code: 'SN', name: 'Sénégal', flag: '🇸🇳', dialCode: '+221' },
-  { code: 'BJ', name: 'Bénin', flag: '🇧🇯', dialCode: '+229' },
-  { code: 'TG', name: 'Togo', flag: '🇹🇬', dialCode: '+228' },
-  { code: 'ML', name: 'Mali', flag: '🇲🇱', dialCode: '+223' },
-  { code: 'BF', name: 'Burkina Faso', flag: '🇧🇫', dialCode: '+226' },
-  { code: 'GN', name: 'Guinée', flag: '🇬🇳', dialCode: '+224' },
+  // { code: 'SN', name: 'Sénégal', flag: '🇸🇳', dialCode: '+221' },
+  // { code: 'BJ', name: 'Bénin', flag: '🇧🇯', dialCode: '+229' },
+  // { code: 'TG', name: 'Togo', flag: '🇹🇬', dialCode: '+228' },
+  // { code: 'ML', name: 'Mali', flag: '🇲🇱', dialCode: '+223' },
+  // { code: 'BF', name: 'Burkina Faso', flag: '🇧🇫', dialCode: '+226' },
+  // { code: 'GN', name: 'Guinée', flag: '🇬🇳', dialCode: '+224' },
 ];
 
 const LeadForm = () => {
@@ -23,11 +24,21 @@ const LeadForm = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
 
+  // Initialize EmailJS
+  useEffect(() => {
+    const emailUserId = import.meta.env.VITE_EMAIL_USER_ID;
+    if (emailUserId) {
+      emailjs.init(emailUserId);
+    } else {
+      console.warn('EmailJS User ID is missing');
+    }
+  }, []);
+
   const currentCountry = countries.find(c => c.code === selectedCountry) || countries[0];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!phone) {
       toast({
         title: t('form.error.title'),
@@ -38,20 +49,41 @@ const LeadForm = () => {
     }
 
     setIsSubmitting(true);
-    
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
       const fullPhoneNumber = `${currentCountry.dialCode} ${phone}`;
-      console.log('Lead submitted:', { phone: fullPhoneNumber, country: selectedCountry });
-      
+
+      // Send email using EmailJS
+      const emailServiceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
+      const emailTemplateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+
+      if (emailServiceId && emailTemplateId) {
+        try {
+          await emailjs.send(
+            emailServiceId,
+            emailTemplateId,
+            {
+              phone: fullPhoneNumber,
+              country: currentCountry.name,
+              country_code: selectedCountry
+            }
+          );
+          console.log('Email sent successfully');
+        } catch (emailError) {
+          console.error('Error sending email:', emailError);
+        }
+      } else {
+        console.warn('EmailJS Service ID or Template ID is missing');
+      }
+
       toast({
         title: t('form.success.title'),
         description: t('form.success.description'),
       });
-      
+
       setPhone('');
     } catch (error) {
+      console.error('Error submitting lead:', error);
       toast({
         title: t('form.error.title'),
         description: t('form.error.description'),
