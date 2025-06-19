@@ -32,28 +32,28 @@ const Footer = () => {
           {/* Liens sociaux */}
           <div className="flex items-center space-x-4">
             <a 
-              href="#" 
+              href="https://www.facebook.com/people/Payzoo/61576975785810/"
               className="w-10 h-10 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:border-gray-900 transition-all duration-200 group"
               aria-label="Facebook"
             >
               <Facebook className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
             </a>
             <a 
-              href="#" 
+              href="https://www.instagram.com/payzooapp"
               className="w-10 h-10 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:border-gray-900 transition-all duration-200 group"
               aria-label="Instagram"
             >
               <Instagram className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
             </a>
             <a 
-              href="#" 
+              href="https://x.com/payzooapp"
               className="w-10 h-10 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:border-gray-900 transition-all duration-200 group"
               aria-label="Twitter"
             >
               <Twitter className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
             </a>
             <a 
-              href="#" 
+              href="https://www.tiktok.com/@payzooapp"
               className="w-10 h-10 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:border-gray-900 transition-all duration-200 group"
               aria-label="TikTok"
             >
@@ -62,7 +62,7 @@ const Footer = () => {
               </svg>
             </a>
             <a 
-              href="#" 
+              href="https://www.linkedin.com/company/payzoo"
               className="w-10 h-10 bg-gray-50 rounded-xl border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:border-gray-900 transition-all duration-200 group"
               aria-label="LinkedIn"
             >
