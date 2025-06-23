@@ -106,7 +106,7 @@ const translations = {
     
     // Footer
     'footer.copyright': 'Tous droits réservés.',
-    'footer.tagline': 'Le paiement nouvelle génération',
+    'footer.tagline': 'Réinventez vos paiements',
   },
   en: {
     // Header
@@ -203,7 +203,7 @@ const translations = {
     
     // Footer
     'footer.copyright': 'All rights reserved.',
-    'footer.tagline': 'Next-generation payments',
+    'footer.tagline': 'Reinvent your payments',
   }
 };
 
