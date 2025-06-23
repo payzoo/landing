@@ -99,8 +99,8 @@ const LeadForm = () => {
       <div className="relative bg-white rounded-3xl shadow-xl border border-gray-200 max-w-lg mx-auto overflow-hidden">
         <div className="p-10">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-900 rounded-2xl mb-8">
-              <span className="text-white text-2xl">📱</span>
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl mb-8">
+              <img src="/logo.png" alt="logo" className="w-10 h-10 object-contain" title="logo"/>
             </div>
             <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-tight">
               {t('form.title')} <span className="font-medium">{t('form.title.highlight')}</span>
