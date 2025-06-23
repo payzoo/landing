@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import LanguageSelector from './LanguageSelector';
 
@@ -11,10 +10,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gray-900 rounded-2xl flex items-center justify-center">
-              <span className="text-white font-bold text-xl">P</span>
-            </div>
-            <span className="text-2xl font-light text-gray-900 tracking-tight">Payzoo</span>
+            <img src="/logo_principal.png" alt="logo" className="w-100 h-12"/>
           </div>
 
           {/* Navigation placeholder for future use */}
