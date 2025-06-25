@@ -10,7 +10,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img src="/logo_principal.png" alt="logo" className="w-100 h-12"/>
+            <img src="/logo_principal.png" alt="logo" className="w-32 h-auto object-contain"/>
           </div>
 
           {/* Navigation placeholder for future use */}
