@@ -150,6 +150,7 @@ const LeadForm = () => {
                     type="tel"
                     placeholder={t('form.phone.placeholder')}
                     value={phone}
+                    maxLength={10}
                     onChange={(e) => setPhone(e.target.value)}
                     className="h-14 border-0 bg-transparent hover:bg-white/50 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 text-base font-medium text-gray-900 placeholder:text-gray-500 rounded-xl px-4 transition-all duration-200"
                     required
