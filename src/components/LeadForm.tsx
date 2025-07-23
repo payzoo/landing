@@ -21,8 +21,40 @@ const LeadForm = () => {
   const [phone, setPhone] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('CI');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
   const { toast } = useToast();
   const { t } = useLanguage();
+
+  // Phone number validation function for Côte d'Ivoire
+  const validatePhoneNumber = (phoneNumber: string): { isValid: boolean; error: string } => {
+    // Remove any spaces or special characters
+    const cleanPhone = phoneNumber.replace(/\s+/g, '').replace(/[^\d]/g, '');
+    
+    // Check if empty
+    if (!cleanPhone) {
+      return { isValid: false, error: t('form.error.phone') };
+    }
+    
+    // Check length (must be exactly 10 digits for Côte d'Ivoire)
+    if (cleanPhone.length !== 10) {
+      return { isValid: false, error: t('form.error.phone.length') };
+    }
+    
+    // Check if it contains only numbers
+    if (!/^\d{10}$/.test(cleanPhone)) {
+      return { isValid: false, error: t('form.error.phone.invalid') };
+    }
+    
+    // Check valid prefixes for Côte d'Ivoire mobile numbers
+    const validPrefixes = ['01', '05', '07'];
+    const prefix = cleanPhone.substring(0, 2);
+    
+    if (!validPrefixes.includes(prefix)) {
+      return { isValid: false, error: t('form.error.phone.prefix') };
+    }
+    
+    return { isValid: true, error: '' };
+  };
 
   // Initialize EmailJS
   useEffect(() => {
@@ -36,13 +68,26 @@ const LeadForm = () => {
 
   const currentCountry = countries.find(c => c.code === selectedCountry) || countries[0];
 
+  // Handle phone input change with real-time validation
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPhone(value);
+    
+    // Real-time validation
+    const validation = validatePhoneNumber(value);
+    setPhoneError(validation.error);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!phone) {
+    // Validate phone number before submission
+    const validation = validatePhoneNumber(phone);
+    if (!validation.isValid) {
+      setPhoneError(validation.error);
       toast({
         title: t('form.error.title'),
-        description: t('form.error.phone'),
+        description: validation.error,
         variant: "destructive"
       });
       return;
@@ -95,36 +140,27 @@ const LeadForm = () => {
   };
 
   return (
-    <div id="signup" className="relative">
-      <div className="relative bg-white rounded-3xl shadow-xl border border-gray-200 max-w-lg mx-auto overflow-hidden">
-        <div className="p-10">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl mb-8">
-              <img src="/logo.png" alt="logo" className="w-10 h-10 object-contain" title="logo"/>
-            </div>
-            <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-tight">
-              {t('form.title')} <span className="font-medium">{t('form.title.highlight')}</span>
-            </h3>
-            <p className="text-gray-600 leading-relaxed font-light">
-              {t('form.description')}
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="bg-gray-50 rounded-2xl p-1 border border-gray-200">
+    <div id="signup" className="relative w-full max-w-md mx-auto">
+      <div className="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="relative p-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Input container with error styling */}
+            <div className={`bg-gray-50 rounded-xl p-1 border transition-all duration-200 ${
+              phoneError ? 'border-red-300 bg-red-50/50' : 'border-gray-200'
+            }`}>
               <div className="flex items-stretch">
                 {/* Country Selector */}
                 <div className="flex-shrink-0">
                   <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-                    <SelectTrigger className="h-14 border-0 bg-transparent hover:bg-white/50 focus:ring-0 focus:ring-offset-0 rounded-xl px-4 min-w-[110px] transition-all duration-200">
+                    <SelectTrigger className="h-12 border-0 bg-transparent hover:bg-white/50 focus:ring-0 focus:ring-offset-0 rounded-lg px-3 min-w-[100px] transition-all duration-200">
                       <SelectValue>
                         <div className="flex items-center space-x-2">
-                          <span className="text-lg">{currentCountry.flag}</span>
+                          <span className="text-base">{currentCountry.flag}</span>
                           <span className="font-medium text-gray-900 text-sm">{currentCountry.dialCode}</span>
                         </div>
                       </SelectValue>
                     </SelectTrigger>
-                    <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-xl max-h-60 z-50">
+                    <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg max-h-60 z-50">
                       {countries.map((country) => (
                         <SelectItem 
                           key={country.code} 
@@ -132,7 +168,7 @@ const LeadForm = () => {
                           className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 cursor-pointer transition-colors duration-150"
                         >
                           <div className="flex items-center space-x-3 w-full">
-                            <span className="text-lg">{country.flag}</span>
+                            <span className="text-base">{country.flag}</span>
                             <span className="font-medium text-gray-900">{country.dialCode}</span>
                           </div>
                         </SelectItem>
@@ -141,8 +177,8 @@ const LeadForm = () => {
                   </Select>
                 </div>
 
-                {/* Separator */}
-                <div className="h-8 w-px bg-gray-300 mx-3 self-center"></div>
+                {/* Simple separator */}
+                <div className="h-6 w-px bg-gray-300 mx-2 self-center"></div>
 
                 {/* Phone Number Input */}
                 <div className="flex-1 relative">
@@ -150,69 +186,50 @@ const LeadForm = () => {
                     type="tel"
                     placeholder={t('form.phone.placeholder')}
                     value={phone}
-                    maxLength={10}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="h-14 border-0 bg-transparent hover:bg-white/50 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 text-base font-medium text-gray-900 placeholder:text-gray-500 rounded-xl px-4 transition-all duration-200"
+                    maxLength={15}
+                    onChange={handlePhoneChange}
+                    className={`h-12 border-0 bg-transparent hover:bg-white/50 focus-visible:ring-1 focus-visible:ring-offset-0 text-base font-medium text-gray-900 placeholder:text-gray-500 rounded-lg px-3 transition-all duration-200 ${
+                      phoneError 
+                        ? 'focus-visible:ring-red-300 text-red-900 placeholder:text-red-400' 
+                        : 'focus-visible:ring-orange-300'
+                    }`}
                     required
                   />
-                  <Phone className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Phone className={`absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 transition-colors duration-200 ${
+                    phoneError ? 'text-red-400' : 'text-gray-400'
+                  }`} />
                 </div>
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Error message display */}
+            {phoneError && (
+              <div className="text-sm text-red-600 mt-1 px-1 animate-in slide-in-from-top-1 duration-200">
+                {phoneError}
+              </div>
+            )}
+
+            {/* Simple Submit Button */}
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gray-900 hover:bg-black text-white h-14 rounded-xl font-medium text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg hover:shadow-xl"
+              className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white h-12 rounded-xl font-medium text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
             >
               {isSubmitting ? (
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center justify-center space-x-3">
                   <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                   <span>{t('form.submitting')}</span>
                 </div>
               ) : (
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center justify-center space-x-3">
                   <span>{t('form.submit')}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </div>
               )}
             </Button>
 
-            {/* Trust indicators */}
-            <div className="flex items-center justify-center space-x-8 text-xs text-gray-500 pt-4">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="font-medium">{t('form.secure')}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="font-medium">{t('form.no.commitment')}</span>
-              </div>
-            </div>
           </form>
 
-          {/* Benefits */}
-          <div className="mt-10 space-y-4">
-            <div className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50">
-              <div className="w-6 h-6 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-white text-xs font-bold">✓</span>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 text-sm mb-1">{t('form.priority.access')}</h4>
-                <p className="text-xs text-gray-600 font-light">{t('form.priority.access.desc')}</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50">
-              <div className="w-6 h-6 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-white text-xs font-bold">✓</span>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 text-sm mb-1">{t('form.preferential.rates')}</h4>
-                <p className="text-xs text-gray-600 font-light">{t('form.preferential.rates.desc')}</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
