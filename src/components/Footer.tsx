@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0">
           {/* Logo et nom */}
           <div className="flex items-center space-x-3">
-            <img src="/logo.png" alt="logo" className="w-8 h-8 object-contain" />
+            <img src="/icon-black.svg" alt="logo" className="w-28 h-28 object-contain" />
           </div>
 
           {/* Copyright */}
